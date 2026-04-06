@@ -1,0 +1,21 @@
+# ROBOTS.TXT — Golden Paws Pet Grooming
+# ========================================
+# This file is one of the first things a search engine
+# crawler (called a "bot" or "spider") looks for when
+# it visits your site. It's a simple plain-text file
+# that tells crawlers which parts of your site they're
+# allowed to access and index.
+#
+# For Golden Paws, we want Google and all other search
+# engines to have full access to every part of the site.
+# The instructions below say exactly that.
+#
+# "User-agent: *" means "this rule applies to ALL bots"
+# "Disallow:" with nothing after it means "nothing is off-limits"
+# "Allow: /" means "everything is permitted"
+# "Sitemap:" points the crawler directly to your sitemap
+
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://goldenpawspetgrooming.com/sitemap.xml

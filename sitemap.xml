@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP.XML — Golden Paws Pet Grooming
+  =======================================
+  A sitemap is essentially a roadmap you hand directly
+  to Google. It lists every URL on your site and tells
+  Google when it was last updated. For a single-page
+  site like this one, it's just one entry — but it
+  still matters because it signals to Google that the
+  site is actively maintained and ready to be indexed.
+
+  After uploading this file to your GitHub repo,
+  submit it in Google Search Console under:
+  Sitemaps → Enter sitemap URL → Add/Submit
+  The URL will be: goldenpawspetgrooming.com/sitemap.xml
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <!-- The canonical (official) URL of the homepage -->
+    <loc>https://goldenpawspetgrooming.com/</loc>
+
+    <!-- Update this date whenever you make changes to the site.
+         Format is YYYY-MM-DD. Google uses this to decide how
+         often to re-crawl the page. -->
+    <lastmod>2026-04-06</lastmod>
+
+    <!-- changefreq tells Google roughly how often this
+         page is updated. "monthly" is appropriate for a
+         small business homepage. Options are: always,
+         hourly, daily, weekly, monthly, yearly, never. -->
+    <changefreq>monthly</changefreq>
+
+    <!-- priority is a hint (0.0 to 1.0) about how important
+         this page is relative to other pages on your site.
+         Since this is your only page, 1.0 is correct. -->
+    <priority>1.0</priority>
+  </url>
+</urlset>
