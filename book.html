@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Book an Appointment | Golden Paws Pet Grooming — Lexington, MA</title>
+  <meta name="description" content="Book your dog or cat grooming appointment online at Golden Paws Pet Grooming in Lexington, MA. Easy online scheduling via MoeGo. Or call us at (781) 274-9144." />
+  <link rel="canonical" href="https://goldenpawspetgrooming.com/book" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://goldenpawspetgrooming.com/book" />
+  <meta property="og:title"       content="Book an Appointment | Golden Paws Pet Grooming" />
+  <meta property="og:description" content="Schedule your pet's grooming appointment online at Golden Paws in Lexington, MA. Quick and easy booking." />
+  <meta property="og:image"       content="https://mannydearaujo.github.io/goldenpaws/Golden_Paws_Logo_Design.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-29DBKD0B56"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-29DBKD0B56');
+  </script>
+
+  <style>
+    /* ── Brand Tokens ─────────────────────────────── */
+    :root {
+      --red:        #8B1A1A;
+      --navy:       #1B3A6B;
+      --gold:       #C9A040;
+      --cream:      #FAF5EC;
+      --light-blue: #EEF4FA;
+      --white:      #ffffff;
+      --border:     #E8E0D0;
+      --text-dark:  #2A2A2A;
+      --text-mid:   #555555;
+      --text-light: #888888;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ── Reset ────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    img  { max-width: 100%; height: auto; display: block; }
+    a    { text-decoration: none; color: inherit; }
+
+    /* ── Layout ───────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── Buttons ──────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s ease, transform 0.15s ease;
+      text-align: center;
+    }
+    .btn:hover  { opacity: 0.9; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-navy   { background: var(--navy); color: #fff; }
+    .btn-gold   { background: var(--gold); color: #fff; }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+
+    /* ── Sticky Header ────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      min-height: 80px;
+    }
+    .header-logo {
+      height: 72px;
+      width: auto;
+      max-width: 280px;
+      object-fit: contain;
+      display: block;
+      padding: 4px 0;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-phone {
+      font-size: 13px;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+    .header-back {
+      font-size: 12px;
+      color: var(--text-mid);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+    .header-back:hover { color: var(--navy); }
+    .header-back svg { flex-shrink: 0; }
+
+    /* ── Red accent bar ───────────────────────────── */
+    .red-bar { height: 3px; background: var(--red); }
+
+    /* ── Page hero strip ──────────────────────────── */
+    .booking-hero {
+      background: var(--navy);
+      padding: 36px 0 32px;
+      text-align: center;
+    }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .booking-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .booking-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 14px auto;
+    }
+
+    /* ── Info bar ─────────────────────────────────── */
+    .info-bar {
+      background: var(--gold);
+      padding: 12px 0;
+    }
+    .info-bar-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .info-item svg { flex-shrink: 0; opacity: 0.9; }
+
+    /* ── Main booking layout ──────────────────────── */
+    .booking-main {
+      flex: 1;
+      padding: 40px 0 56px;
+    }
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── Iframe card ──────────────────────────────── */
+    .booking-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .booking-card-header {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .booking-card-header span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .booking-card-header .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+    }
+    .booking-iframe-wrap {
+      /* Full height on desktop, auto on mobile */
+      height: 780px;
+      position: relative;
+    }
+    .booking-iframe-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── Sidebar ──────────────────────────────────── */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .sidebar-card h3 {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .sidebar-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .sidebar-card li svg { flex-shrink: 0; margin-top: 2px; }
+
+    .contact-card { background: var(--navy); border-color: var(--navy); }
+    .contact-card h3 { color: #fff; }
+    .contact-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px;
+      border-radius: 6px;
+      background: var(--gold);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+      margin-bottom: 10px;
+    }
+    .contact-btn:hover { opacity: 0.9; }
+    .contact-btn.outline {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    .contact-divider {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      margin: 8px 0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+      font-size: 12px;
+    }
+    .hours-day  { color: var(--text-dark); font-weight: 500; }
+    .hours-time { color: var(--text-mid); text-align: right; }
+    .hours-closed { color: var(--text-light); }
+    .hours-divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: var(--border);
+      margin: 4px 0;
+    }
+
+    /* ── Footer ───────────────────────────────────── */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.8);
+      padding: 40px 0 0;
+    }
+    .footer-inner {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      padding-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+    .footer-links h4 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-links li { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .footer-links a  { color: rgba(255,255,255,0.6); }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 900px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        /* On tablet show sidebar below iframe in a row */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 18px; }
+      .header-phone { display: none; }
+      .header-logo { height: 52px; max-width: 180px; }
+      .header-inner { min-height: 60px; }
+      .booking-hero { padding: 28px 0 24px; }
+      .info-bar-inner { gap: 16px; }
+
+      /* On mobile the iframe fills the screen height minus header */
+      .booking-iframe-wrap { height: calc(100vh - 64px); }
+
+      /* Stack sidebar cards vertically again */
+      .sidebar { display: flex; flex-direction: column; }
+
+      .footer-inner { flex-direction: column; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 380px) {
+      .booking-hero h1 { font-size: 22px; }
+      .info-item span  { font-size: 11px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Header ─────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/">
+          <img
+            src="https://mannydearaujo.github.io/goldenpaws/Golden_Paws_Logo_Design.png"
+            alt="Golden Paws Pet Grooming — back to homepage"
+            class="header-logo"
+          />
+        </a>
+        <div class="header-right">
+          <span class="header-phone">(781) 274-9144</span>
+          <a href="/" class="header-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="red-bar"></div>
+
+  <!-- ── Page Hero ──────────────────────────────── -->
+  <div class="booking-hero">
+    <div class="container">
+      <div class="eyebrow">Golden Paws Pet Grooming</div>
+      <h1>Book Your Appointment</h1>
+      <div class="gold-rule"></div>
+      <p>Schedule your pet's grooming session online in seconds — or call or text us at <strong style="color:#fff;">(781) 274-9144</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ── Info Bar ────────────────────────────────── -->
+  <div class="info-bar">
+    <div class="container">
+      <div class="info-bar-inner">
+        <div class="info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Tue – Sat: 8:00 AM – 4:00 PM</span>
+        </div>
+        <div class="info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>395 Lowell St, Lexington, MA</span>
+        </div>
+        <div class="info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 8 8l1.56-1.56a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 24 17z"/></svg>
+          <span>Call or Text: (781) 274-9144</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Content ────────────────────────────── -->
+  <main class="booking-main">
+    <div class="container">
+      <div class="booking-layout">
+
+        <!-- MoeGo Booking Iframe -->
+        <div class="booking-card">
+          <div class="booking-card-header">
+            <div class="status-dot"></div>
+            <span>Online Booking — Powered by MoeGo</span>
+          </div>
+          <div class="booking-iframe-wrap">
+            <iframe
+              src="https://booking.moego.pet/ol/GoldenPawsPetGroomingInc/book?utm_medium=embed"
+              title="Online booking for Golden Paws Pet Grooming"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+          <!-- Contact card -->
+          <div class="sidebar-card contact-card">
+            <h3>Prefer to Call or Text?</h3>
+            <p>Our team is happy to help you schedule directly — just give us a call or send a text.</p>
+            <a href="tel:7812749144" class="contact-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 8 8l1.56-1.56a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 24 17z"/></svg>
+              Call (781) 274-9144
+            </a>
+            <div class="contact-divider">or</div>
+            <a href="sms:7812749144" class="contact-btn outline">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Text Us
+            </a>
+          </div>
+
+          <!-- What to expect -->
+          <div class="sidebar-card">
+            <h3>What to Expect</h3>
+            <ul>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A040" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Appointment-based — your dog's time is reserved and dedicated
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A040" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                No cage drying — your pet is never left unattended
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A040" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Breed-appropriate cuts and coat health at every visit
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A040" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                We'll call you when your pet is ready for pickup
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hours -->
+          <div class="sidebar-card">
+            <h3>Salon Hours</h3>
+            <div class="hours-grid">
+              <span class="hours-day">Tuesday</span>   <span class="hours-time">8:00 AM – 4:00 PM</span>
+              <span class="hours-day">Wednesday</span> <span class="hours-time">8:00 AM – 4:00 PM</span>
+              <span class="hours-day">Thursday</span>  <span class="hours-time">8:00 AM – 4:00 PM</span>
+              <span class="hours-day">Friday</span>    <span class="hours-time">8:00 AM – 4:00 PM</span>
+              <span class="hours-day">Saturday</span>  <span class="hours-time">8:00 AM – 4:00 PM</span>
+              <div class="hours-divider"></div>
+              <span class="hours-day hours-closed">Sunday</span>   <span class="hours-time hours-closed">Closed</span>
+              <span class="hours-day hours-closed">Monday</span>   <span class="hours-time hours-closed">Closed</span>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="sidebar-card">
+            <h3>Find Us</h3>
+            <ul>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A040" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                395 Lowell St, Lexington, MA 02420
+              </li>
+            </ul>
+            <a
+              href="https://maps.google.com/?q=395+Lowell+St+Lexington+MA"
+              target="_blank"
+              rel="noopener"
+              style="display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--navy);text-decoration:underline;text-underline-offset:3px;"
+            >Get directions →</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <img
+            src="https://mannydearaujo.github.io/goldenpaws/Golden_Paws_Logo_Design.png"
+            alt="Golden Paws Pet Grooming"
+            class="footer-logo"
+          />
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li>395 Lowell St, Lexington, MA 02420</li>
+            <li><a href="tel:7812749144">(781) 274-9144</a></li>
+            <li><span id="email-footer"></span></li>
+            <li><a href="https://instagram.com/goldenpawspet" target="_blank" rel="noopener">@goldenpawspet</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Hours</h4>
+          <ul>
+            <li>Tuesday – Saturday</li>
+            <li>8:00 AM – 4:00 PM</li>
+            <li style="color:rgba(255,255,255,0.3);margin-top:4px;">Sunday – Monday: Closed</li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/service-areas">Service Areas</a></li>
+            <li><a href="/book">Book Appointment</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Golden Paws Pet Grooming Inc. All rights reserved.</span>
+        <span class="footer-copy">Lexington, MA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Email obfuscation
+    (function() {
+      var u = 'goldenpawslexington';
+      var d = 'gmail.com';
+      var e = u + '@' + d;
+      var ef = document.getElementById('email-footer');
+      if (ef) ef.innerHTML = '<a href="mailto:' + e + '" style="color:rgba(255,255,255,0.6);">' + e + '</a>';
+    })();
+  </script>
+
+</body>
+</html>
