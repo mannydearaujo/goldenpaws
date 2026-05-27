@@ -9,9 +9,301 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","PetGroomer"],"name":"Golden Paws Pet Grooming","url":"https://goldenpawspetgrooming.com","telephone":"+1-781-274-9144","description":"Professional Bichon Frise grooming in Lexington, MA. Coat health, breed-appropriate cuts, and expert handling for Bichon Frises.","address":{"@type":"PostalAddress","streetAddress":"395 Lowell St","addressLocality":"Lexington","addressRegion":"MA","postalCode":"02420","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":42.4534,"longitude":-71.2239},"areaServed":"Lexington, MA and surrounding communities","priceRange":"639","sameAs":["https://www.instagram.com/goldenpawspet"],"dateModified":"2026-05-01"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often should a Bichon Frise be professionally groomed?","acceptedAnswer":{"@type":"Answer","text":"Bichons benefit from professional grooming every 4 to 6 weeks. Bichons' continuously growing coats mat quickly if grooming intervals are extended, and the bright white coat shows staining and soiling rapidly. Consistent 4 to 6 week appointments keep the coat healthy, white, and properly shaped. Consistent professional grooming maintains coat health, manages shedding or mat risk, and gives the groomer an opportunity to check skin condition, ear health, and nail length at every visit."}},{"@type":"Question","name":"What is included in a Bichon Frise groom at Golden Paws?","acceptedAnswer":{"@type":"Answer","text":"A Bichon Frise groom at Golden Paws includes pre-bath brush-out, bath with whitening shampoo appropriate for the Bichon's white coat, blow-dry, precise all-over scissor trim to the rounded Bichon silhouette, careful facial trim, paw trimming, ear cleaning, nail trim, and anal gland expression. We pay particular attention to the face — the round, full Bichon head shape requires careful scissor work and even blending."}},{"@type":"Question","name":"What makes the Bichon Frise coat unique?","acceptedAnswer":{"@type":"Answer","text":"The Bichon Frise has a soft, curly double coat that grows continuously and does not shed — meaning loose hair stays trapped in the curl and forms mats if not brushed and groomed consistently. Bichon coats are delicate and require a groomer with precise scissor technique and an understanding of the breed's rounded, powder-puff silhouette. The Bichon's coat is bright white, which means staining around the face and paws is visible and should be addressed at every grooming appointment."}},{"@type":"Question","name":"Do you groom Bichon Frises from the surrounding towns?","acceptedAnswer":{"@type":"Answer","text":"Yes. We groom Bichon Frises from Lexington, Arlington, Bedford, Burlington, Winchester, Belmont, Waltham, Newton, Woburn, Medford, Concord, and all surrounding communities within approximately 25 minutes of our salon at 395 Lowell St in Lexington, MA."}},{"@type":"Question","name":"Is there anything special to know about grooming Bichon Frises?","acceptedAnswer":{"@type":"Answer","text":"tear staining is common in Bichons and requires gentle cleaning at every appointment. The staining originates from the eye discharge that accumulates in the fur around the inner corners of the eyes. We clean this area carefully at each groom and discuss at-home maintenance options with owners who want to minimize staining between visits."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://goldenpawspetgrooming.com"},{"@type":"ListItem","position":2,"name":"Breed Grooming","item":"https://goldenpawspetgrooming.com/breeds"},{"@type":"ListItem","position":3,"name":"Bichon Frise Grooming","item":"https://goldenpawspetgrooming.com/bichon-frise-grooming-lexington-ma"}]}</script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Brand Tokens ─────────────── */
+    :root {
+      --red:        #8B1A1A;
+      --navy:       #1B3A6B;
+      --gold:       #C9A040;
+      --cream:      #FAF5EC;
+      --light-blue: #EEF4FA;
+      --white:      #ffffff;
+      --border:     #E8E0D0;
+      --text-dark:  #2A2A2A;
+      --text-mid:   #555555;
+      --text-light: #888888;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ── Layout ─────────────────────── */
+    .gp-container { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── Header ─────────────────────── */
+    .gp-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .gp-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 16px;
+    }
+    .gp-logo {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .gp-header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .gp-phone {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+    .gp-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .gp-btn:hover { opacity: 0.88; }
+    .gp-btn-navy { background: var(--navy); color: #fff; }
+    .gp-btn-gold { background: var(--gold); color: #fff; }
+    .gp-btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .gp-red-bar { height: 3px; background: var(--red); }
+
+    /* ── Breadcrumb ─────────────────── */
+    .gp-breadcrumb {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+    }
+    .gp-breadcrumb-inner {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-light);
+      flex-wrap: wrap;
+    }
+    .gp-breadcrumb a { color: var(--navy); }
+    .gp-breadcrumb a:hover { text-decoration: underline; }
+    .gp-breadcrumb-sep { color: var(--text-light); }
+
+    /* ── Page Content ─────────────────── */
+    .gp-page {
+      padding: 48px 0 64px;
+    }
+    .gp-page h1 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .gp-gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 14px 0 24px;
+    }
+    .gp-page > .gp-container > p:first-of-type {
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .gp-page h2 {
+      font-family: var(--serif);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 40px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gp-page h3 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-top: 28px;
+      margin-bottom: 8px;
+    }
+    .gp-page p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .gp-page ul, .gp-page ol {
+      margin: 0 0 16px 20px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .gp-page li { margin-bottom: 6px; }
+
+    /* ── CTA Strip ─────────────────────── */
+    .gp-cta-strip {
+      background: var(--navy);
+      padding: 40px 0;
+      margin-top: 56px;
+      text-align: center;
+    }
+    .gp-cta-strip h2 {
+      font-family: var(--serif);
+      font-size: clamp(20px, 3vw, 28px);
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .gp-cta-strip p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+    .gp-cta-strip .gp-gold-rule {
+      margin: 10px auto 20px;
+    }
+    .gp-cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ─────────────────────── */
+    .gp-footer {
+      background: #111E35;
+      color: rgba(255,255,255,0.7);
+      padding: 44px 0 0;
+    }
+    .gp-footer-inner {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      padding-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .gp-footer-logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+    .gp-footer-col h4 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .gp-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .gp-footer-col li { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .gp-footer-col a { color: rgba(255,255,255,0.6); }
+    .gp-footer-col a:hover { color: #fff; }
+    .gp-footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .gp-footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    /* ── Responsive ─────────────────── */
+    @media (max-width: 640px) {
+      .gp-container { padding: 0 18px; }
+      .gp-phone { display: none; }
+      .gp-logo { height: 44px; }
+      .gp-header-inner { min-height: 60px; }
+      .gp-footer-inner { flex-direction: column; gap: 24px; }
+      .gp-cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-29DBKD0B56"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-29DBKD0B56');
+  </script>
 </head>
 <body>
-  <h1>Bichon Frise Grooming in Lexington, MA — Golden Paws Pet Grooming</h1>
+
+
+  <header class="gp-header">
+    <div class="gp-container">
+      <div class="gp-header-inner">
+        <a href="/">
+          <img
+            src="https://mannydearaujo.github.io/goldenpaws/Golden_Paws_Logo_Design.png"
+            alt="Golden Paws Pet Grooming — home"
+            class="gp-logo"
+          />
+        </a>
+        <div class="gp-header-right">
+          <span class="gp-phone">(781) 274-9144</span>
+          <a href="/book" class="gp-btn gp-btn-navy">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="gp-red-bar"></div>
+
+  <nav class="gp-breadcrumb" aria-label="Breadcrumb">
+    <div class="gp-container">
+      <div class="gp-breadcrumb-inner">
+        <a href="/">Home</a>
+        <span class="gp-breadcrumb-sep">›</span>
+        <a href="/">Breed Grooming</a>
+        <span class="gp-breadcrumb-sep">›</span>
+        <span>Bichon Frise Grooming in Lexington, MA</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="gp-page">
+    <div class="gp-container">
+      <h1>Bichon Frise Grooming in Lexington, MA — Golden Paws Pet Grooming</h1>
   <p>Golden Paws Pet Grooming in Lexington, MA provides professional grooming for Bichon Frises and serves clients from Lexington and more than 20 surrounding communities. The Bichon Frise has a soft, curly double coat that grows continuously and does not shed — meaning loose hair stays trapped in the curl and forms mats if not brushed and groomed consistently. Bichon coats are delicate and require a groomer with precise scissor technique and an understanding of the breed's rounded, powder-puff silhouette. The Bichon's coat is bright white, which means staining around the face and paws is visible and should be addressed at every grooming appointment. Our groomers understand the specific care this coat requires and approach every Bichon Frise appointment with the technique, patience, and attention to detail the breed demands. Call 781-274-9144 to book your Bichon Frise's appointment.</p>
 
   <h2>Understanding the Bichon Frise's coat</h2>
@@ -43,5 +335,68 @@
 
   <p><strong>Ready to book your Bichon Frise's grooming appointment?</strong> Call Golden Paws Pet Grooming at 781-274-9144. We're at 395 Lowell St, Lexington, MA — professional Bichon Frise grooming for clients from Lexington and the surrounding MetroBoston communities.</p>
   <p><em>Last updated: May 2026</em></p>
+    </div>
+  </main>
+
+  <div class="gp-cta-strip">
+    <div class="gp-container">
+      <h2>Ready to Book?</h2>
+      <div class="gp-gold-rule"></div>
+      <p>Professional, appointment-based grooming in Lexington, MA. Every dog, every visit, every time.</p>
+      <div class="gp-cta-btns">
+        <a href="/book" class="gp-btn gp-btn-gold">Book Online</a>
+        <a href="tel:7812749144" class="gp-btn gp-btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">Call (781) 274-9144</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="gp-footer">
+    <div class="gp-container">
+      <div class="gp-footer-inner">
+        <div>
+          <img
+            src="https://mannydearaujo.github.io/goldenpaws/Golden_Paws_Logo_Design.png"
+            alt="Golden Paws Pet Grooming"
+            class="gp-footer-logo"
+          />
+        </div>
+
+        <div class="gp-footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>395 Lowell St, Lexington, MA 02420</li>
+            <li><a href="tel:7812749144">(781) 274-9144</a></li>
+            <li><a href="mailto:goldenpawslexington@gmail.com">goldenpawslexington@gmail.com</a></li>
+            <li><a href="https://instagram.com/goldenpawspet" target="_blank" rel="noopener">@goldenpawspet</a></li>
+          </ul>
+        </div>
+
+        <div class="gp-footer-col">
+          <h4>Hours</h4>
+          <ul>
+            <li>Tuesday – Saturday</li>
+            <li>8:00 AM – 4:00 PM</li>
+            <li style="color:rgba(255,255,255,0.3);margin-top:4px;">Sunday – Monday: Closed</li>
+          </ul>
+        </div>
+
+        <div class="gp-footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/service-areas">Service Areas</a></li>
+            <li><a href="/book">Book Appointment</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gp-footer-bottom">
+        <span class="gp-footer-copy">&copy; 2026 Golden Paws Pet Grooming Inc. All rights reserved.</span>
+        <span class="gp-footer-copy">Lexington, MA</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
