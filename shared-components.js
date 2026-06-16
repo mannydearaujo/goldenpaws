@@ -260,7 +260,8 @@ const SHARED_STYLES = `
       .gp-footer-inner { flex-direction: column; gap: 24px; }
       .gp-cta-btns { flex-direction: column; align-items: center; }
     }
-  </style>`;
+  </style>
+  <script defer src="/lead-tracking.js"></script>`;
 
 const HEADER_HTML = `
   <header class="gp-header">
@@ -274,8 +275,8 @@ const HEADER_HTML = `
           />
         </a>
         <div class="gp-header-right">
-          <span class="gp-phone">(781) 274-9144</span>
-          <a href="/book" class="gp-btn gp-btn-navy">Book Appointment</a>
+          <a href="tel:7812749144" class="gp-phone" data-track="phone_tap" data-track-label="subpage header phone">(781) 274-9144</a>
+          <a href="/book" class="gp-btn gp-btn-navy" data-track="booking_click" data-track-label="subpage header booking">Book Appointment</a>
         </div>
       </div>
     </div>
@@ -333,8 +334,8 @@ const CTA_STRIP = `
       <div class="gp-gold-rule"></div>
       <p>Professional, appointment-based grooming in Lexington, MA. Every dog, every visit, every time.</p>
       <div class="gp-cta-btns">
-        <a href="/book" class="gp-btn gp-btn-gold">Book Online</a>
-        <a href="tel:7812749144" class="gp-btn gp-btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">Call (781) 274-9144</a>
+        <a href="/book" class="gp-btn gp-btn-gold" data-track="booking_click" data-track-label="subpage cta booking">Book Online</a>
+        <a href="tel:7812749144" class="gp-btn gp-btn-outline" data-track="phone_tap" data-track-label="subpage cta phone" style="color:#fff;border-color:rgba(255,255,255,0.4);">Call (781) 274-9144</a>
       </div>
     </div>
   </div>`;
@@ -355,7 +356,7 @@ const FOOTER_HTML = `
           <h4>Contact</h4>
           <ul>
             <li>395 Lowell St, Lexington, MA 02420</li>
-            <li><a href="tel:7812749144">(781) 274-9144</a></li>
+            <li><a href="tel:7812749144" data-track="phone_tap" data-track-label="subpage footer phone">(781) 274-9144</a></li>
             <li><a href="mailto:goldenpawslexington@gmail.com">goldenpawslexington@gmail.com</a></li>
             <li><a href="https://instagram.com/goldenpawspet" target="_blank" rel="noopener">@goldenpawspet</a></li>
           </ul>
@@ -376,7 +377,7 @@ const FOOTER_HTML = `
             <li><a href="/">Home</a></li>
             <li><a href="/#services">Services</a></li>
             <li><a href="/service-areas">Service Areas</a></li>
-            <li><a href="/book">Book Appointment</a></li>
+            <li><a href="/book" data-track="booking_click" data-track-label="subpage footer booking">Book Appointment</a></li>
           </ul>
         </div>
       </div>
