@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250">
+  <style>
+    .display { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; }
+    .sans { font-family: Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing: 12px; }
+    .small { font-family: Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing: 5px; }
+  </style>
+  
+  
+    <g transform="translate(30,28) scale(0.82)">
+<g id="paw" fill="#222222">
+  <ellipse cx="92" cy="46" rx="24" ry="34" transform="rotate(-18 92 46)"/>
+  <ellipse cx="154" cy="34" rx="25" ry="35" transform="rotate(-5 154 34)"/>
+  <ellipse cx="218" cy="45" rx="24" ry="34" transform="rotate(16 218 45)"/>
+  <ellipse cx="43" cy="88" rx="22" ry="32" transform="rotate(-32 43 88)"/>
+  <path d="M72 198 C69 146 105 111 156 111 C207 111 243 146 240 198 C238 229 213 242 183 229 C167 222 145 222 129 229 C99 242 74 229 72 198 Z"/>
+</g>
+</g>
+    <text x="260" y="144" class="display" font-size="78" fill="#222222">Golden Paws</text>
+    <line x1="272" y1="196" x2="342" y2="196" stroke="#222222" stroke-width="5"/>
+    <text x="372" y="208" class="sans" font-size="36" fill="#222222">PET GROOMING</text>
+    <line x1="770" y1="196" x2="840" y2="196" stroke="#222222" stroke-width="5"/>
+    
+</svg>

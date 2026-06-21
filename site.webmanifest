@@ -1,0 +1,11 @@
+{
+  "name": "Golden Paws Pet Grooming",
+  "short_name": "Golden Paws",
+  "icons": [
+    { "src": "/assets/brand/favicon_192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/brand/favicon_512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1D4ED8",
+  "background_color": "#FFF7EF",
+  "display": "standalone"
+}
