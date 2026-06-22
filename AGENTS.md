@@ -114,6 +114,7 @@ Every page shares: header (logo lockup + hamburger nav), cream footer, favicons 
 - Unified favicon across all pages (`088e8d2`).
 - Added project guidance files for Claude/Codex sessions and synced FAQ JSON-LD with visible FAQ copy.
 - **Town-page differentiation pass:** all 22 `dog-grooming-<town>-ma.html` pages rewritten with unique, human-voiced local copy and synced FAQ/JSON-LD (eliminates doorway-page risk). The two global content rules above (no "one dog at a time", no em-dashes) were applied site-wide during this pass. Homepage `<h1>` became "Professional Dog Grooming in Lexington, MA, Serving Lexington & Surrounding Communities." Pages were regenerated via a throwaway Python script that swapped only the `<main>` inner content + FAQ JSON-LD, leaving each page's head/schema/footer shell intact.
+- Fixed breed-page BreadcrumbList schema to point at `/breed-grooming` instead of the old `/breeds` URL and refreshed sitemap `lastmod` dates to 2026-06-22 for recrawl clarity.
 
 Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): all titles/metas distinct, one H1 per page, schema present, NAP consistent, zero anti-patterns, no broken links.
 
