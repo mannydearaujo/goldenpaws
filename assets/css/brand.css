@@ -353,6 +353,9 @@ a { text-decoration: none; color: inherit; }
   padding-bottom: 10px;
   border-bottom: 2px solid var(--gp-gold-soft);
 }
+.gp-page [id] {
+  scroll-margin-top: 110px;
+}
 .gp-page h3 {
   font-family: var(--gp-display);
   font-size: 20px;
