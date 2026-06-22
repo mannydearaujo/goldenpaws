@@ -288,6 +288,8 @@ a { text-decoration: none; color: inherit; }
 .gp-contact-list svg { width: 20px; height: 20px; flex-shrink: 0; }
 .gp-areas { display: flex; flex-wrap: wrap; gap: 8px; }
 .gp-area-pill { font-size: 12px; font-weight: 600; color: var(--gp-royal); background: var(--gp-royal-soft); border-radius: var(--gp-r-pill); padding: 6px 16px; }
+a.gp-area-pill { text-decoration: none; transition: background .15s, color .15s; }
+a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
 
 /* ---- Subpage shell -------------------------------------------- */
 .gp-breadcrumb {
