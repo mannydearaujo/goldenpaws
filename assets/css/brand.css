@@ -423,7 +423,8 @@ a { text-decoration: none; color: inherit; }
   background: var(--gp-cream);
   border-radius: 32px;
   padding: 44px 0 38px;
-  text-align: center;
+  text-align: left;
+  position: relative;
 }
 .eyebrow {
   display: inline-block;
@@ -448,14 +449,58 @@ a { text-decoration: none; color: inherit; }
   font-size: 16px;
   color: var(--gp-text-mid);
   max-width: 540px;
-  margin: 0 auto;
+  margin: 0;
 }
 .gold-rule {
   width: 54px;
   height: 5px;
   background: var(--gp-gold);
   border-radius: var(--gp-r-pill);
-  margin: 14px auto 18px;
+  margin: 14px 0 18px;
+}
+.booking-hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  position: relative;
+  z-index: 2;
+}
+.booking-hero-copy {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+.booking-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.booking-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.booking-hero-visual {
+  flex: 0 1 340px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.booking-hero-photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  overflow: hidden;
+  box-shadow: var(--gp-shadow);
+  background: var(--gp-sky-soft);
+}
+.booking-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
 }
 .info-bar {
   background: var(--gp-gold);
@@ -603,6 +648,12 @@ a { text-decoration: none; color: inherit; }
   .gp-grid-2 { grid-template-columns: 1fr; }
   .gp-gallery { grid-template-columns: repeat(2, 1fr); }
   .gp-steps-row { grid-template-columns: 1fr; }
+  .booking-hero-inner { flex-direction: column; text-align: center; }
+  .booking-hero-copy { flex-basis: auto; }
+  .booking-hero p { margin: 0 auto; }
+  .booking-hero .gold-rule { margin-left: auto; margin-right: auto; }
+  .booking-hero-actions,
+  .booking-hero-trust { justify-content: center; }
   .booking-layout { grid-template-columns: 1fr; }
   .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .gp-nav-toggle { display: inline-flex; }
@@ -640,6 +691,7 @@ a { text-decoration: none; color: inherit; }
   }
   .gp-page { padding: 42px 0 52px; }
   .booking-hero { padding: 34px 0 30px; }
+  .booking-hero-photo { width: 220px; height: 220px; }
   .booking-iframe-wrap { height: calc(100vh - 82px); min-height: 620px; }
 }
 @media (max-width: 480px) {
