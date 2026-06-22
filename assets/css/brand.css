@@ -644,7 +644,9 @@ a { text-decoration: none; color: inherit; }
 .gp-mobile-cta { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 110; background: #fff; border-top: 1px solid var(--gp-border); box-shadow: 0 -8px 18px rgba(29,78,216,0.12); }
 .gp-mobile-cta a { flex: 1; display: flex; align-items: center; justify-content: center; padding: 15px 10px; font-size: 13px; font-weight: 700; letter-spacing: .5px; }
 .gp-mobile-cta .gp-m-call { background: var(--gp-crimson); color: #fff; }
+.gp-mobile-cta .gp-m-text { background: var(--gp-gold); color: #152A4D; }
 .gp-mobile-cta .gp-m-book { background: var(--gp-royal); color: #fff; }
+.gp-mobile-cta .gp-m-text svg { margin-right: 5px; }
 
 /* ---- Responsive ----------------------------------------------- */
 @media (max-width: 860px) {
