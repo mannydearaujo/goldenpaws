@@ -18,4 +18,12 @@
 User-agent: *
 Disallow:
 Allow: /
+
+# GitHub Pages serves every page at both the clean URL (e.g. /dog-grooming-arlington-ma)
+# and the raw ".html" file (e.g. /dog-grooming-arlington-ma.html) — both return 200 with
+# identical content. The clean URL is canonical (see each page's <link rel="canonical">).
+# This blocks crawling of the ".html" duplicate so it stops competing with the canonical
+# URL for indexing. GitHub Pages has no native redirect, so this is the available fix.
+Disallow: /*.html$
+
 Sitemap: https://goldenpawspetgrooming.com/sitemap.xml
