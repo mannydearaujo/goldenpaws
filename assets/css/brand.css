@@ -712,3 +712,36 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   .info-bar-inner { gap: 12px; align-items: flex-start; }
   .info-item { width: 100%; justify-content: center; text-align: center; }
 }
+
+/* ── FAQ ─────────────────────────── */
+.gp-faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.gp-faq-item {
+  background: var(--gp-white);
+  border: 1px solid var(--gp-border);
+  border-radius: var(--gp-r-card);
+  padding: 18px 22px;
+}
+.gp-faq-item summary {
+  font-family: var(--gp-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--gp-charcoal);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.gp-faq-item summary::-webkit-details-marker { display: none; }
+.gp-faq-item summary::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gp-royal);
+  flex: 0 0 auto;
+  transition: transform .15s ease;
+}
+.gp-faq-item[open] summary::after { content: "\2212"; }
+.gp-faq-item p { font-size: 14.5px; color: var(--gp-text-mid); margin-top: 12px; line-height: 1.6; }
+.gp-faq-item p a { color: var(--gp-royal); font-weight: 600; }
