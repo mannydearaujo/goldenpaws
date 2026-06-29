@@ -28,8 +28,9 @@ Plain HTML + one shared stylesheet, no build step, no framework.
 - `assets/css/brand.css` — single shared stylesheet (714 lines) loaded with a **cache-busting query string** (`brand.css?v=N`) on every page. **Bump `N` on every edit to brand.css** or browsers (Safari especially) serve stale CSS. Current version: `v=8` (bump to `v=9` on next brand.css edit) on all pages.
 - `assets/logo/` — SVG logo family.
 - `assets/brand/` — favicons + OG images.
-- `lead-tracking.js` — GA4 event tracking helper, included in `<head>` of every page.
+- `lead-tracking.js` — GA4 event tracking helper, included in `<head>` of every page. Defines `window.gpTrackLead`, also pushes to `dataLayer` for GTM, and loads `gtag.js` directly if not already present. **GA4 events are sent directly via this script's own `gtag()` calls, not through GTM** — GTM (`GTM-PK5D6W8R`, installed sitewide in `<head>`/`<body>`) currently has zero tags configured, so don't add GA4 tags in GTM without first removing the direct `gtag()` calls here, or every lead event will double-count.
 - GA4 property: `G-29DBKD0B56`.
+- `automation/lead-automations.gs` — tracked copy of the standalone Apps Script project ("Golden Paws Lead Automations", lives at script.google.com under `goldenpawslexington@gmail.com`) that sends a branded HTML confirmation email to new-client Tally intake submissions. Bound to the intake Google Sheet via `SpreadsheetApp.openById()`, runs on a 10-minute time-based trigger. Apps Script doesn't deploy from git — edit in the Apps Script editor and paste the result back into this file.
 - The full branding-kit folder (`Golden_Paws_Complete_Branding_Logo_Kit/`) and `.claude/` are **gitignored** — local reference only, not deployed.
 
 ## Design system (rebranded June 2026)
@@ -116,6 +117,18 @@ Every page shares: header (logo lockup + hamburger nav), cream footer, favicons 
 
 Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): all titles/metas distinct, one H1 per page, schema present, NAP consistent, zero anti-patterns, no broken links.
 
+**Phase 6 — Tally new-client intake, GTM, and lead automation (June 28–29, 2026).**
+- Added a Tally-powered new-client intake embed to `book.html` (existing clients still use the MoeGo scheduler) and an `intake=thanks` redirect/thank-you state; wired up GTM container `GTM-PK5D6W8R` sitewide (`c0970df`).
+- Resolved a rebase conflict on the 11 town pages whose coverage had separately moved to redirect-style "coverage moved" notice pages — kept the newer notice-page content and re-applied the GTM script/noscript to each.
+- **Fixed a real bug:** `new_client_intake_submit` never fired in production because the inline `intake=thanks` tracking script ran synchronously during page parse, before the `defer`-loaded `lead-tracking.js` had set `window.gpTrackLead`. Fixed by polling for `gpTrackLead` instead of relying on `DOMContentLoaded` timing (`027e8b4`, `84ffb87`). Verified live via GA4 Realtime after the fix.
+- Confirmed `booking_click` and `phone_tap` were already marked as GA4 Key Events; decided **against** adding GA4 event tags in GTM since `lead-tracking.js` already sends GA4 events directly — adding GTM tags on the same events would double-count every lead.
+- Built `automation/lead-automations.gs` (Apps Script, not deployed from this repo — see Stack section above): sends a branded HTML confirmation email to new-client Tally submissions on a 10-minute trigger, replacing the need for Tally Pro's paid auto-reply feature. Tested end-to-end twice with a real test row/real email (deleted after).
+- Looked into MoeGo's appointment/booking API for a future same-day-reminder integration: a real REST API exists (`github.com/MoeGolibrary/moegoapis`) but API keys are issued manually through MoeGo's Customer Success team, no self-serve signup, no Zapier app.
+
 ## Outstanding / deferred work
 
-As of 2026-06-22, working tree is clean and all phases above (including the town-page differentiation pass) are committed and live on `main`. No open deferred items are currently tracked. Re-verify against `git log` / `git status` before assuming this section is still accurate — it will go stale as work continues.
+As of 2026-06-29:
+- `new_client_intake_submit` fires correctly (confirmed in GA4 Realtime) but hasn't yet been marked a GA4 Key Event — GA4's admin event list lags Realtime by hours, so it wasn't yet selectable as of this writing. Mark it (star icon under Admin → Data display → Events) once it appears.
+- Same-day appointment reminders are **not built**. The Tally intake Sheet has no confirmed-appointment-date column (only a free-text "preferred days/timeframes" field), and actual appointments live in MoeGo, not the Sheet. Needs explicit scoping (e.g. add a staff-filled appointment-date column, or build against the MoeGo API once a key is obtained) before automating.
+- MoeGo API integration is unstarted — would need an API key from MoeGo's Customer Success team first.
+- Re-verify against `git log` / `git status` before assuming this section is still accurate — it will go stale as work continues.
