@@ -15,10 +15,18 @@
   }
 
   window.gpTrackLead = function gpTrackLead(eventName, label, extra = {}) {
-    if (!window.gtag) return;
-    window.gtag("event", eventName, {
+    const eventPayload = {
+      event: eventName,
       event_category: "lead",
       event_label: label || eventName,
+      ...extra,
+    };
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(eventPayload);
+    if (!window.gtag) return;
+    window.gtag("event", eventName, {
+      event_category: eventPayload.event_category,
+      event_label: eventPayload.event_label,
       ...extra,
     });
   };
@@ -46,6 +54,10 @@
     }
     if (href.startsWith("mailto:")) {
       window.gpTrackLead("email_click", label);
+      return;
+    }
+    if (href.includes("tally.so") || href.includes("#new-client-intake")) {
+      window.gpTrackLead("new_client_intake_open", label);
       return;
     }
     if (href.includes("/book") || href.includes("booking.moego.pet")) {
