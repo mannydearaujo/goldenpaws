@@ -412,13 +412,15 @@
           thanks.hidden = false;
           thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        document.addEventListener('DOMContentLoaded', function() {
+        (function waitForTracker(attemptsLeft) {
           if (window.gpTrackLead) {
             window.gpTrackLead('new_client_intake_submit', 'Tally intake thank-you redirect', {
               source: 'tally_redirect'
             });
+          } else if (attemptsLeft > 0) {
+            setTimeout(function() { waitForTracker(attemptsLeft - 1); }, 100);
           }
-        });
+        })(50);
       }
     })();
   </script>
