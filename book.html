@@ -412,11 +412,13 @@
           thanks.hidden = false;
           thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        if (window.gpTrackLead) {
-          window.gpTrackLead('new_client_intake_submit', 'Tally intake thank-you redirect', {
-            source: 'tally_redirect'
-          });
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+          if (window.gpTrackLead) {
+            window.gpTrackLead('new_client_intake_submit', 'Tally intake thank-you redirect', {
+              source: 'tally_redirect'
+            });
+          }
+        });
       }
     })();
   </script>
