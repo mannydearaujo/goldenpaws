@@ -27,7 +27,7 @@ This file mirrors `CLAUDE.md` for Codex/agent workflows. Keep both files aligned
 
 Plain HTML + one shared stylesheet, no build step, no framework.
 
-- `assets/css/brand.css` — single shared stylesheet (714 lines) loaded with a **cache-busting query string** (`brand.css?v=N`) on every page. **Bump `N` on every edit to brand.css** or browsers (Safari especially) serve stale CSS. Current version: `v=8` (bump to `v=9` on next brand.css edit) on all pages.
+- `assets/css/brand.css` — single shared stylesheet (929 lines) loaded with a **cache-busting query string** (`brand.css?v=N`) on every page. **Bump `N` on every edit to brand.css** or browsers (Safari especially) serve stale CSS. Current version: `v=9` (bump to `v=10` on next brand.css edit) on all pages.
 - `assets/logo/` — SVG logo family.
 - `assets/brand/` — favicons + OG images.
 - `lead-tracking.js` — GA4 event tracking helper, included in `<head>` of every page. Defines `window.gpTrackLead`, also pushes to `dataLayer` for GTM, and loads `gtag.js` directly if not already present. **GA4 events are sent directly via this script's own `gtag()` calls, not through GTM** — GTM (`GTM-PK5D6W8R`, installed sitewide in `<head>`/`<body>`) currently has zero tags configured, so don't add GA4 tags in GTM without first removing the direct `gtag()` calls here, or every lead event will double-count.
@@ -46,10 +46,12 @@ Bright/bubbly look:
 - Mobile nav = hamburger toggling `.gp-open` on `#gp-nav`.
 - `brand.css` includes **legacy compatibility aliases** (`--red`/`--navy`/etc CSS vars, `.gp-container`, `.gp-btn-navy`) so older page markup still styles correctly without rewriting every page's classes.
 
-## Site structure (40 pages)
+## Site structure (42 pages)
 
 - `index.html` — homepage
-- `book.html` — booking page
+- `book.html` — booking choice page
+- `new-client-intake.html` — required new-client Tally intake page
+- `existing-client-booking.html` — existing-client MoeGo booking page
 - `services.html` — services hub
 - `breed-grooming.html` — breed-grooming hub (note: **not** `/breeds`)
 - `service-areas.html` — service-area index
@@ -121,6 +123,7 @@ Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): 
 
 **Phase 6 — Tally new-client intake, GTM, and lead automation (June 28–29, 2026).**
 - Added a Tally-powered new-client intake embed to `book.html` (existing clients still use the MoeGo scheduler) and an `intake=thanks` redirect/thank-you state; wired up GTM container `GTM-PK5D6W8R` sitewide (`c0970df`).
+- Split booking into three clean paths: `/book` is a chooser page, `/new-client-intake` hosts the required Tally form for new clients, and `/existing-client-booking` hosts the MoeGo scheduler for returning clients.
 - Resolved a rebase conflict on the 11 town pages whose coverage had separately moved to redirect-style "coverage moved" notice pages — kept the newer notice-page content and re-applied the GTM script/noscript to each.
 - **Fixed a real bug:** `new_client_intake_submit` never fired in production because the inline `intake=thanks` tracking script ran synchronously during page parse, before the `defer`-loaded `lead-tracking.js` had set `window.gpTrackLead`. Fixed by polling for `gpTrackLead` instead of relying on `DOMContentLoaded` timing (`027e8b4`, `84ffb87`). Verified live via GA4 Realtime after the fix.
 - Confirmed `booking_click` and `phone_tap` were already marked as GA4 Key Events; decided **against** adding GA4 event tags in GTM since `lead-tracking.js` already sends GA4 events directly — adding GTM tags on the same events would double-count every lead.

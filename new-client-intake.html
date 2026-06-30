@@ -13,16 +13,16 @@
 <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Book an Appointment | Golden Paws Pet Grooming, Lexington, MA</title>
-  <meta name="description" content="Choose the right Golden Paws booking path. New clients complete intake first, while existing clients continue to online booking." />
-  <link rel="canonical" href="https://goldenpawspetgrooming.com/book" />
+  <title>New Client Intake | Golden Paws Pet Grooming, Lexington, MA</title>
+  <meta name="description" content="New Golden Paws clients can complete the required intake form before scheduling a first dog grooming appointment in Lexington, MA." />
+  <link rel="canonical" href="https://goldenpawspetgrooming.com/new-client-intake" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://goldenpawspetgrooming.com/book" />
-  <meta property="og:title"       content="Book an Appointment | Golden Paws Pet Grooming" />
-  <meta property="og:description" content="New Golden Paws clients complete intake first. Existing clients can continue to online booking." />
+  <meta property="og:url"         content="https://goldenpawspetgrooming.com/new-client-intake" />
+  <meta property="og:title"       content="New Client Intake | Golden Paws Pet Grooming" />
+  <meta property="og:description" content="New Golden Paws clients start here with the required intake form." />
   <meta property="og:image"       content="https://goldenpawspetgrooming.com/assets/brand/golden_paws_og_social_1200x630.png" />
 
   <!-- FONTS -->
@@ -98,11 +98,11 @@
       <div class="booking-hero-inner">
         <div class="booking-hero-copy">
           <div class="eyebrow">Golden Paws Pet Grooming</div>
-          <h1>Book Your Dog Grooming Appointment</h1>
+          <h1>New Client Intake</h1>
           <div class="gold-rule"></div>
-          <p>Choose the path that matches your pet. New Golden Paws clients start with intake so our team can review pet details and vaccine records. Existing clients can continue to online booking.</p>
+          <p>First time with Golden Paws? Please complete this intake form so our team can review your pet's details and vaccine records before scheduling.</p>
           <div class="booking-hero-actions">
-            <a href="/new-client-intake" class="gp-btn gp-btn-royal" data-track="new_client_intake_open" data-track-label="book hero new client intake">New client intake</a>
+            <a href="#new-client-intake" class="gp-btn gp-btn-royal" data-track="new_client_intake_open" data-track-label="book hero new client intake">New client intake</a>
             <a href="/existing-client-booking" class="gp-btn gp-btn-gold" data-track="booking_click" data-track-label="book hero existing client">Existing client booking</a>
             <a href="tel:7812749144" class="gp-btn gp-btn-outline" data-track="phone_tap" data-track-label="book hero phone">Call (781) 274-9144</a>
             <a href="sms:7812749144" class="gp-btn gp-btn-outline" data-track="sms_tap" data-track-label="book hero sms">Text us</a>
@@ -146,8 +146,16 @@
   <!-- ── Main Content ────────────────────────────── -->
   <main class="booking-main">
     <div class="container">
+      <div class="intake-thanks" id="intake-thanks" hidden>
+        <div class="status-dot"></div>
+        <div>
+          <strong>Thank you. Your new-client intake was received.</strong>
+          <span>One of our team members will review your information and get back to you shortly.</span>
+        </div>
+      </div>
+
       <div class="booking-paths" aria-label="Choose your booking path">
-        <a href="/new-client-intake" class="booking-path-card booking-path-primary" data-track="new_client_intake_open" data-track-label="choose new client intake">
+        <a href="#new-client-intake" class="booking-path-card booking-path-primary" data-track="new_client_intake_open" data-track-label="choose new client intake">
           <span class="booking-path-kicker">New client</span>
           <strong>Start with intake</strong>
           <span>Required for pets who have not visited Golden Paws before. Send contact details, pet information, preferred days, and vaccine records.</span>
@@ -159,22 +167,46 @@
         </a>
       </div>
 
+      <section class="intake-section intake-section-priority" id="new-client-intake" aria-labelledby="new-client-intake-title">
+        <div class="intake-copy">
+          <span class="eyebrow">New clients only</span>
+          <h2 id="new-client-intake-title">Complete Your New Client Intake</h2>
+          <p>If this is your first time booking with Golden Paws, start here. Current vaccine records are required before your appointment, including rabies, bordetella, and distemper. Our team will review your information before scheduling.</p>
+        </div>
+        <div class="booking-card intake-card">
+          <div class="booking-card-header">
+            <div class="status-dot"></div>
+            <span>New Client Intake, Powered by Tally</span>
+          </div>
+          <div class="tally-iframe-wrap">
+            <iframe
+              id="new-client-intake-iframe"
+              src="https://tally.so/embed/RGgJRQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              title="Golden Paws new client intake form"
+              loading="lazy"
+              width="100%"
+              height="1250"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       <div class="booking-layout">
 
         <div class="booking-card booking-choice-card">
           <div class="booking-card-header">
             <div class="status-dot"></div>
-            <span>Which booking path should I use?</span>
+            <span>Already a Golden Paws client?</span>
+          </div>
+          <div class="existing-client-note">
+            <strong>Already visited Golden Paws?</strong>
+            <span>Use the separate existing-client booking page if your pet is already in our system.</span>
           </div>
           <div class="booking-choice-copy">
-            <h2>New clients start with the intake form.</h2>
-            <p>The intake form gives our team the information we need before scheduling a first appointment, including your dog's coat needs, comfort notes, and vaccine records.</p>
-            <h2>Existing clients can book online.</h2>
-            <p>If your dog has already visited Golden Paws and is in our system, use the existing-client booking page to open MoeGo.</p>
-            <div class="booking-choice-actions">
-              <a href="/new-client-intake" class="gp-btn gp-btn-royal" data-track="new_client_intake_open" data-track-label="book explainer new client intake">Continue to intake</a>
-              <a href="/existing-client-booking" class="gp-btn gp-btn-gold" data-track="booking_click" data-track-label="book explainer existing client">Existing client booking</a>
-            </div>
+            <a href="/existing-client-booking" class="gp-btn gp-btn-gold" data-track="booking_click" data-track-label="new intake existing client handoff">Go to existing-client booking</a>
           </div>
         </div>
 
@@ -353,15 +385,37 @@
 
   <script>
     (function(){
+      var intakeFrame = document.getElementById('new-client-intake-iframe');
+      if (intakeFrame) {
+        intakeFrame.addEventListener('load', function() {
+          if (window.gpTrackLead) window.gpTrackLead('new_client_intake_embed_load', 'new client intake page Tally loaded');
+        });
+        intakeFrame.addEventListener('focus', function() {
+          if (window.gpTrackLead) window.gpTrackLead('new_client_intake_open', 'new client intake page Tally focused');
+        });
+      }
       if (window.location.search.indexOf('intake=thanks') !== -1) {
-        window.location.replace('/new-client-intake?intake=thanks');
+        var thanks = document.getElementById('intake-thanks');
+        if (thanks) {
+          thanks.hidden = false;
+          thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        (function waitForTracker(attemptsLeft) {
+          if (window.gpTrackLead) {
+            window.gpTrackLead('new_client_intake_submit', 'Tally intake thank-you redirect', {
+              source: 'tally_redirect'
+            });
+          } else if (attemptsLeft > 0) {
+            setTimeout(function() { waitForTracker(attemptsLeft - 1); }, 100);
+          }
+        })(50);
       }
     })();
   </script>
 
 
   <div class="gp-mobile-cta" aria-label="Quick actions">
-    <a href="/new-client-intake" class="gp-m-book" data-track="new_client_intake_open" data-track-label="mobile new client intake">New Client</a>
+    <a href="#new-client-intake" class="gp-m-book" data-track="new_client_intake_open" data-track-label="mobile new client intake">New Client</a>
     <a href="/existing-client-booking" class="gp-m-text" data-track="booking_click" data-track-label="mobile existing client booking">Existing Client</a>
     <a href="tel:7812749144" class="gp-m-call" data-track="phone_tap" data-track-label="mobile call">Call</a>
   </div>

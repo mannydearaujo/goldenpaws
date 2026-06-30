@@ -421,7 +421,7 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
 .info-bar,
 .booking-main {
   width: calc(100% - 40px);
-  max-width: 1180px;
+  max-width: 1240px;
   margin: 16px auto;
   overflow: hidden;
 }
@@ -478,14 +478,19 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
 .booking-hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
+  gap: 14px;
+  margin-top: 28px;
 }
 .booking-hero-trust {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 14px;
+  margin-top: 30px;
+  max-width: 660px;
+}
+.booking-hero-trust .gp-chip {
+  padding: 11px 20px;
+  font-size: 15px;
 }
 .booking-hero-visual {
   flex: 0 1 340px;
@@ -531,7 +536,7 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
 .booking-main {
   background: var(--gp-white);
   border-radius: 32px;
-  padding: 40px 0 56px;
+  padding: 54px 0 68px;
   box-shadow: var(--gp-shadow-sm);
 }
 .intake-thanks {
@@ -558,52 +563,66 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
 .booking-paths {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-bottom: 28px;
+  gap: 26px;
+  margin-bottom: 44px;
 }
 .booking-path-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-height: 170px;
-  padding: 24px;
+  gap: 14px;
+  min-height: 220px;
+  padding: 34px 36px;
   border: 1px solid var(--gp-border);
   border-radius: var(--gp-r-card);
   background: var(--gp-cream);
   box-shadow: var(--gp-shadow-sm);
   transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
 }
+.booking-path-primary {
+  background: var(--gp-royal);
+  border-color: var(--gp-royal);
+}
 .booking-path-card:hover {
   border-color: rgba(29, 78, 216, 0.24);
   box-shadow: var(--gp-shadow);
   transform: translateY(-2px);
 }
+.booking-path-primary:hover {
+  border-color: var(--gp-royal);
+}
 .booking-path-card strong {
   font-family: var(--gp-display);
   color: var(--gp-charcoal);
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(30px, 3.2vw, 42px);
   line-height: 1.05;
+}
+.booking-path-primary strong {
+  color: #fff;
 }
 .booking-path-card span:last-child {
   color: var(--gp-text-mid);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 620px;
+}
+.booking-path-primary span:last-child {
+  color: rgba(255,255,255,0.82);
 }
 .booking-path-kicker {
   width: fit-content;
   border-radius: var(--gp-r-pill);
   background: #fff;
   color: var(--gp-royal);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 1.2px;
-  padding: 7px 12px;
+  padding: 9px 16px;
   text-transform: uppercase;
 }
 .booking-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 34px;
   align-items: start;
 }
 .booking-card,
@@ -617,7 +636,7 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
 .booking-card-header {
   background: var(--gp-cream);
   border-bottom: 1px solid var(--gp-border);
-  padding: 16px 24px;
+  padding: 20px 28px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -644,8 +663,58 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   height: 100%;
   border: 0;
 }
+.booking-choice-card {
+  overflow: visible;
+}
+.booking-choice-copy {
+  padding: 36px 38px;
+}
+.booking-choice-copy h2 {
+  font-family: var(--gp-display);
+  font-size: clamp(30px, 3.1vw, 42px);
+  line-height: 1.05;
+  color: var(--gp-charcoal);
+  margin-bottom: 14px;
+}
+.booking-choice-copy p {
+  color: var(--gp-text-mid);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 760px;
+}
+.booking-choice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 30px;
+}
+.existing-client-note {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 24px;
+  background: var(--gp-royal-soft);
+  border-bottom: 1px solid var(--gp-border);
+}
+.existing-client-note strong {
+  font-family: var(--gp-display);
+  font-size: 20px;
+  line-height: 1.1;
+  color: var(--gp-charcoal);
+}
+.existing-client-note span {
+  color: var(--gp-text-mid);
+  font-size: 14px;
+  line-height: 1.55;
+}
 .intake-section {
   margin-top: 44px;
+}
+.intake-section-priority {
+  margin-top: 6px;
+  margin-bottom: 44px;
+  scroll-margin-top: 110px;
 }
 .intake-copy {
   max-width: 780px;
@@ -667,13 +736,14 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   max-width: 860px;
 }
 .tally-iframe-wrap {
-  min-height: 980px;
+  min-height: 1120px;
   padding: 6px 0 0;
 }
 .tally-iframe-wrap iframe {
   display: block;
   width: 100%;
   border: 0;
+  min-height: 1120px;
 }
 .sidebar { display: flex; flex-direction: column; gap: 18px; }
 .sidebar-card { padding: 24px; }
@@ -759,6 +829,7 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   .booking-hero .gold-rule { margin-left: auto; margin-right: auto; }
   .booking-hero-actions,
   .booking-hero-trust { justify-content: center; }
+  .booking-hero-trust { margin-left: auto; margin-right: auto; }
   .booking-paths { grid-template-columns: 1fr; }
   .booking-layout { grid-template-columns: 1fr; }
   .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -798,9 +869,19 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   .gp-page { padding: 42px 0 52px; }
   .booking-hero { padding: 34px 0 30px; }
   .booking-hero-photo { width: 220px; height: 220px; }
+  .booking-main { padding: 34px 0 48px; }
   .booking-iframe-wrap { height: calc(100vh - 82px); min-height: 620px; }
-  .booking-path-card { min-height: auto; padding: 20px; }
-  .tally-iframe-wrap { min-height: 1060px; }
+  .booking-paths { gap: 18px; margin-bottom: 28px; }
+  .booking-path-card { min-height: auto; padding: 24px; }
+  .booking-path-card strong { font-size: 30px; }
+  .booking-path-card span:last-child { font-size: 15px; }
+  .booking-choice-copy { padding: 26px 24px; }
+  .booking-choice-copy h2 { font-size: 30px; }
+  .booking-choice-copy p { font-size: 15px; margin-bottom: 22px; }
+  .intake-section-priority { margin-bottom: 30px; }
+  .intake-copy h2 { font-size: 30px; }
+  .tally-iframe-wrap,
+  .tally-iframe-wrap iframe { min-height: 1180px; }
 }
 @media (max-width: 480px) {
   .gp-hero-btns { flex-direction: column; align-items: stretch; }

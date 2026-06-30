@@ -13,16 +13,16 @@
 <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Book an Appointment | Golden Paws Pet Grooming, Lexington, MA</title>
-  <meta name="description" content="Choose the right Golden Paws booking path. New clients complete intake first, while existing clients continue to online booking." />
-  <link rel="canonical" href="https://goldenpawspetgrooming.com/book" />
+  <title>Existing Client Booking | Golden Paws Pet Grooming, Lexington, MA</title>
+  <meta name="description" content="Existing Golden Paws clients can book dog grooming online with MoeGo. New clients should complete the intake form first." />
+  <link rel="canonical" href="https://goldenpawspetgrooming.com/existing-client-booking" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://goldenpawspetgrooming.com/book" />
-  <meta property="og:title"       content="Book an Appointment | Golden Paws Pet Grooming" />
-  <meta property="og:description" content="New Golden Paws clients complete intake first. Existing clients can continue to online booking." />
+  <meta property="og:url"         content="https://goldenpawspetgrooming.com/existing-client-booking" />
+  <meta property="og:title"       content="Existing Client Booking | Golden Paws Pet Grooming" />
+  <meta property="og:description" content="Existing Golden Paws clients can book online with MoeGo. New clients should complete intake first." />
   <meta property="og:image"       content="https://goldenpawspetgrooming.com/assets/brand/golden_paws_og_social_1200x630.png" />
 
   <!-- FONTS -->
@@ -98,12 +98,12 @@
       <div class="booking-hero-inner">
         <div class="booking-hero-copy">
           <div class="eyebrow">Golden Paws Pet Grooming</div>
-          <h1>Book Your Dog Grooming Appointment</h1>
+          <h1>Existing Client Booking</h1>
           <div class="gold-rule"></div>
-          <p>Choose the path that matches your pet. New Golden Paws clients start with intake so our team can review pet details and vaccine records. Existing clients can continue to online booking.</p>
+          <p>If your dog has already visited Golden Paws and is in our system, use MoeGo below to book online. New clients should complete the intake form first.</p>
           <div class="booking-hero-actions">
             <a href="/new-client-intake" class="gp-btn gp-btn-royal" data-track="new_client_intake_open" data-track-label="book hero new client intake">New client intake</a>
-            <a href="/existing-client-booking" class="gp-btn gp-btn-gold" data-track="booking_click" data-track-label="book hero existing client">Existing client booking</a>
+            <a href="#existing-client-booking" class="gp-btn gp-btn-gold" data-track="booking_embed_interaction" data-track-label="book hero existing client">Existing client booking</a>
             <a href="tel:7812749144" class="gp-btn gp-btn-outline" data-track="phone_tap" data-track-label="book hero phone">Call (781) 274-9144</a>
             <a href="sms:7812749144" class="gp-btn gp-btn-outline" data-track="sms_tap" data-track-label="book hero sms">Text us</a>
           </div>
@@ -152,7 +152,7 @@
           <strong>Start with intake</strong>
           <span>Required for pets who have not visited Golden Paws before. Send contact details, pet information, preferred days, and vaccine records.</span>
         </a>
-        <a href="/existing-client-booking" class="booking-path-card" data-track="booking_click" data-track-label="choose existing client booking">
+        <a href="#existing-client-booking" class="booking-path-card" data-track="booking_embed_interaction" data-track-label="choose existing client booking">
           <span class="booking-path-kicker">Existing client</span>
           <strong>Book in MoeGo</strong>
           <span>Use this only if your pet is already in our system.</span>
@@ -161,20 +161,24 @@
 
       <div class="booking-layout">
 
-        <div class="booking-card booking-choice-card">
+        <!-- MoeGo Booking Iframe -->
+        <div class="booking-card" id="existing-client-booking">
           <div class="booking-card-header">
             <div class="status-dot"></div>
-            <span>Which booking path should I use?</span>
+            <span>Existing Clients Only, Powered by MoeGo</span>
           </div>
-          <div class="booking-choice-copy">
-            <h2>New clients start with the intake form.</h2>
-            <p>The intake form gives our team the information we need before scheduling a first appointment, including your dog's coat needs, comfort notes, and vaccine records.</p>
-            <h2>Existing clients can book online.</h2>
-            <p>If your dog has already visited Golden Paws and is in our system, use the existing-client booking page to open MoeGo.</p>
-            <div class="booking-choice-actions">
-              <a href="/new-client-intake" class="gp-btn gp-btn-royal" data-track="new_client_intake_open" data-track-label="book explainer new client intake">Continue to intake</a>
-              <a href="/existing-client-booking" class="gp-btn gp-btn-gold" data-track="booking_click" data-track-label="book explainer existing client">Existing client booking</a>
-            </div>
+          <div class="existing-client-note">
+            <strong>Already visited Golden Paws?</strong>
+            <span>Use the scheduler below if your pet is already in our system. If this is your first visit, please use the new-client intake page instead.</span>
+          </div>
+          <div class="booking-iframe-wrap">
+            <iframe
+              id="booking-iframe"
+              src="https://booking.moego.pet/ol/GoldenPawsPetGroomingInc/book?utm_medium=embed"
+              title="Online booking for Golden Paws Pet Grooming"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
 
@@ -353,6 +357,15 @@
 
   <script>
     (function(){
+      var bookingFrame = document.getElementById('booking-iframe');
+      if (bookingFrame) {
+        bookingFrame.addEventListener('load', function() {
+          if (window.gpTrackLead) window.gpTrackLead('booking_embed_load', 'existing client booking page embed loaded');
+        });
+        bookingFrame.addEventListener('focus', function() {
+          if (window.gpTrackLead) window.gpTrackLead('booking_embed_interaction', 'existing client booking page embed focused');
+        });
+      }
       if (window.location.search.indexOf('intake=thanks') !== -1) {
         window.location.replace('/new-client-intake?intake=thanks');
       }
@@ -362,7 +375,7 @@
 
   <div class="gp-mobile-cta" aria-label="Quick actions">
     <a href="/new-client-intake" class="gp-m-book" data-track="new_client_intake_open" data-track-label="mobile new client intake">New Client</a>
-    <a href="/existing-client-booking" class="gp-m-text" data-track="booking_click" data-track-label="mobile existing client booking">Existing Client</a>
+    <a href="#existing-client-booking" class="gp-m-text" data-track="booking_embed_interaction" data-track-label="mobile existing client booking">Existing Client</a>
     <a href="tel:7812749144" class="gp-m-call" data-track="phone_tap" data-track-label="mobile call">Call</a>
   </div>
 
