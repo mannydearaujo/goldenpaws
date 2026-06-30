@@ -481,16 +481,8 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   gap: 14px;
   margin-top: 28px;
 }
-.booking-hero-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
-  max-width: 660px;
-}
-.booking-hero-trust .gp-chip {
-  padding: 11px 20px;
-  font-size: 15px;
+.booking-hero-actions .gp-btn {
+  min-width: 168px;
 }
 .booking-hero-visual {
   flex: 0 1 340px;
@@ -827,9 +819,7 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   .booking-hero-copy { flex-basis: auto; }
   .booking-hero p { margin: 0 auto; }
   .booking-hero .gold-rule { margin-left: auto; margin-right: auto; }
-  .booking-hero-actions,
-  .booking-hero-trust { justify-content: center; }
-  .booking-hero-trust { margin-left: auto; margin-right: auto; }
+  .booking-hero-actions { justify-content: center; }
   .booking-paths { grid-template-columns: 1fr; }
   .booking-layout { grid-template-columns: 1fr; }
   .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -869,6 +859,16 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   .gp-page { padding: 42px 0 52px; }
   .booking-hero { padding: 34px 0 30px; }
   .booking-hero-photo { width: 220px; height: 220px; }
+  .booking-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .booking-hero-actions .gp-btn {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 14px;
+  }
   .booking-main { padding: 34px 0 48px; }
   .booking-iframe-wrap { height: calc(100vh - 82px); min-height: 620px; }
   .booking-paths { gap: 18px; margin-bottom: 28px; }
@@ -887,6 +887,7 @@ a.gp-area-pill:hover { background: var(--gp-royal); color: #fff; }
   .gp-hero-btns { flex-direction: column; align-items: stretch; }
   .gp-hero-btns-pair { flex-direction: column; width: 100%; }
   .gp-hero-btns .gp-btn { width: 100%; }
+  .booking-hero-actions { grid-template-columns: 1fr; }
   .gp-cta-btns { flex-direction: column; align-items: stretch; }
   .gp-cta-btns .gp-btn { width: 100%; }
   .sidebar { display: flex; flex-direction: column; }

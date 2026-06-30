@@ -27,7 +27,7 @@ This file mirrors `CLAUDE.md` for Codex/agent workflows. Keep both files aligned
 
 Plain HTML + one shared stylesheet, no build step, no framework.
 
-- `assets/css/brand.css` — single shared stylesheet (929 lines) loaded with a **cache-busting query string** (`brand.css?v=N`) on every page. **Bump `N` on every edit to brand.css** or browsers (Safari especially) serve stale CSS. Current version: `v=9` (bump to `v=10` on next brand.css edit) on all pages.
+- `assets/css/brand.css` — single shared stylesheet (930 lines) loaded with a **cache-busting query string** (`brand.css?v=N`) on every page. **Bump `N` on every edit to brand.css** or browsers (Safari especially) serve stale CSS. Current version: `v=10` (bump to `v=11` on next brand.css edit) on all pages.
 - `assets/logo/` — SVG logo family.
 - `assets/brand/` — favicons + OG images.
 - `lead-tracking.js` — GA4 event tracking helper, included in `<head>` of every page. Defines `window.gpTrackLead`, also pushes to `dataLayer` for GTM, and loads `gtag.js` directly if not already present. **GA4 events are sent directly via this script's own `gtag()` calls, not through GTM** — GTM (`GTM-PK5D6W8R`, installed sitewide in `<head>`/`<body>`) currently has zero tags configured, so don't add GA4 tags in GTM without first removing the direct `gtag()` calls here, or every lead event will double-count.
