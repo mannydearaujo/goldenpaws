@@ -130,9 +130,12 @@ Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): 
 - Built `automation/lead-automations.gs` (Apps Script, not deployed from this repo — see Stack section above): sends a branded HTML confirmation email to new-client Tally submissions on a 10-minute trigger, replacing the need for Tally Pro's paid auto-reply feature. Tested end-to-end twice with a real test row/real email (deleted after).
 - Looked into MoeGo's appointment/booking API for a future same-day-reminder integration: a real REST API exists (`github.com/MoeGolibrary/moegoapis`) but API keys are issued manually through MoeGo's Customer Success team, no self-serve signup, no Zapier app.
 
+**Phase 7 — booking-flow schema polish (July 9, 2026).**
+- Added `WebPage` and `BreadcrumbList` JSON-LD to `/book`, `/new-client-intake`, and `/existing-client-booking` after booking-flow QA found those pages had correct canonicals/sitemap coverage but no page-level schema.
+
 ## Outstanding / deferred work
 
-As of 2026-06-29:
+As of 2026-07-09:
 - `new_client_intake_submit` fires correctly (confirmed in GA4 Realtime) but hasn't yet been marked a GA4 Key Event — GA4's admin event list lags Realtime by hours, so it wasn't yet selectable as of this writing. Mark it (star icon under Admin → Data display → Events) once it appears.
 - Same-day appointment reminders are **not built**. The Tally intake Sheet has no confirmed-appointment-date column (only a free-text "preferred days/timeframes" field), and actual appointments live in MoeGo, not the Sheet. Needs explicit scoping (e.g. add a staff-filled appointment-date column, or build against the MoeGo API once a key is obtained) before automating.
 - MoeGo API integration is unstarted — would need an API key from MoeGo's Customer Success team first.
