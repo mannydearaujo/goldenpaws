@@ -231,13 +231,16 @@
             <span>New Client Intake, Powered by Tally</span>
           </div>
           <div class="tally-iframe-wrap">
+            <!-- Measured the real rendered form at 2780px tall (2026-08-18) with the resizer
+                 script active; height is set generously above that as a static fallback in
+                 case the resize script doesn't fire for a given user, so the form is never
+                 cut off. -->
             <iframe
               id="new-client-intake-iframe"
               src="https://tally.so/embed/RGgJRQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
               title="Golden Paws new client intake form"
-              loading="lazy"
               width="100%"
-              height="1250"
+              height="3000"
               frameborder="0"
               marginheight="0"
               marginwidth="0"
@@ -434,6 +437,10 @@
       if (ef) ef.innerHTML = '<a href="mailto:' + e + '">' + e + '</a>';
     })();
   </script>
+
+  <!-- Tally's own widget script is required for the dynamicHeight=1 embed param to actually
+       resize the iframe. Without it the iframe stays locked at the fallback height attribute. -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
 
   <script>
     (function(){
