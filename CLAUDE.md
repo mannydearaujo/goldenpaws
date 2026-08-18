@@ -76,7 +76,7 @@ Every page shares: header (logo lockup + hamburger nav), cream footer, favicons 
   - Text button: `sms:7812749144`, `data-track="sms_tap"`.
   - `.gp-m-text` style = gold background / navy text.
 - Homepage + booking-page hero CTAs are split into trackable **Call** (`phone_tap`) and **Text us** (`sms_tap`) rather than one combined "Call or text" button.
-- GA4 Key Events confirmed active: `phone_tap`, `booking_click`, `sms_tap`, etc.
+- GA4 Key Events confirmed active (verified directly via GA4 Admin API 2026-08-18): `phone_tap`, `booking_click`, `sms_tap`, `new_client_intake_submit`.
 - Each `dog-grooming-<town>-ma.html` has an extractable AEO-style question H2 ("Do you groom dogs from `<town>`, MA?") right after the intro, for AI-search answer extraction. The 4 service-detail pages already had 7–8 question H2s each.
 - Breadcrumb dead-ends are fixed: breed pages link back to `/breed-grooming`, service pages link back to `/services`.
 
@@ -141,7 +141,6 @@ Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): 
 ## Outstanding / deferred work
 
 As of 2026-08-18:
-- `new_client_intake_submit` fires correctly and steadily (confirmed by the Phase 8 audit, 7+ weeks of volume). Per the Manny AI OS vault, Manny confirmed on 2026-07-10 that it's already marked a GA4 Key Event — this repo's notes just hadn't been updated since the June 29 baseline. If GA4 Admin shows otherwise, star it under Admin → Data display → Events.
 - Ranking-dilution fix (Phase 8) is on-page only so far. Re-pull Search Console position data for Arlington/Bedford/Burlington/Medford/Watertown in 2–4 weeks to see whether the added internal links moved anything; if not, the next lever is GBP posts/photos/Q&A naming those towns plus directory citations (Yelp, Nextdoor, Bing Places), which needs Manny's GBP login.
 - Same-day appointment reminders are **not built**. The Tally intake Sheet has no confirmed-appointment-date column (only a free-text "preferred days/timeframes" field), and actual appointments live in MoeGo, not the Sheet. Needs explicit scoping (e.g. add a staff-filled appointment-date column, or build against the MoeGo API once a key is obtained) before automating.
 - MoeGo API integration is unstarted — would need an API key from MoeGo's Customer Success team first.
