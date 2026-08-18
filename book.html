@@ -49,6 +49,57 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon_180x180.png?v=2" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#1D4ED8" />
+
+  <!-- BOOKING PAGE SCHEMA (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Book an Appointment | Golden Paws Pet Grooming",
+    "url": "https://goldenpawspetgrooming.com/book",
+    "description": "Choose the right Golden Paws booking path. New clients complete intake first, while existing clients continue to online booking.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Golden Paws Pet Grooming",
+      "url": "https://goldenpawspetgrooming.com/"
+    },
+    "about": {
+      "@type": ["LocalBusiness", "PetGroomer"],
+      "@id": "https://goldenpawspetgrooming.com/#business",
+      "name": "Golden Paws Pet Grooming",
+      "url": "https://goldenpawspetgrooming.com/",
+      "telephone": "+1-781-274-9144",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "395 Lowell St",
+        "addressLocality": "Lexington",
+        "addressRegion": "MA",
+        "postalCode": "02420",
+        "addressCountry": "US"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://goldenpawspetgrooming.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Book Appointment",
+        "item": "https://goldenpawspetgrooming.com/book"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

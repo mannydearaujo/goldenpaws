@@ -128,7 +128,10 @@ Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): 
 - Built `automation/lead-automations.gs` (Apps Script, not deployed from this repo — see Stack section above): sends a branded HTML confirmation email to new-client Tally submissions on a 10-minute trigger, replacing the need for Tally Pro's paid auto-reply feature. Tested end-to-end twice with a real test row/real email (deleted after).
 - Looked into MoeGo's appointment/booking API for a future same-day-reminder integration: a real REST API exists (`github.com/MoeGolibrary/moegoapis`) but API keys are issued manually through MoeGo's Customer Success team, no self-serve signup, no Zapier app.
 
-**Phase 7 — search/analytics audit and internal-linking pass (August 18, 2026).**
+**Phase 7 — booking-flow schema polish (July 9, 2026).**
+- Added `WebPage` and `BreadcrumbList` JSON-LD to `/book`, `/new-client-intake`, and `/existing-client-booking` after booking-flow QA found those pages had correct canonicals/sitemap coverage but no page-level schema.
+
+**Phase 8 — search/analytics audit and internal-linking pass (August 18, 2026).**
 - Ran a full Search Console + GA4 audit using the North Atlas Studio agency's service-account scripts (`ga4-report.mjs`, `search-console-report.mjs`, in the separate `Website & SEO Agency/scripts/` repo, keyed against `scripts/signal-registry.json`) — pulled live API data rather than reading the dashboards.
 - Diagnosis: weekly Search Console impressions grew roughly 5x since the June rebrand/town-page expansion (289 → up to 1,645/week) while average position slid from #6–9 to #16–23 over the same stretch, so clicks stayed close to flat. This is authority dilution from launching 22 similar-tier town pages at once, not a content-quality problem — confirmed by reading the actual `dog-grooming-waltham-ma.html` and `dog-grooming-watertown-ma.html` source, both of which are genuinely town-specific (real landmarks/routes) and schema-correct already.
 - Confirmed with day-by-day GA4 data that the new-client intake funnel (`booking_click`, intake open/embed_load/submit) softened together in the most recent full week versus the week before (Aug 3–9 → Aug 10–16: 7→3 intake submits, 56→43 booking_click), tracking the same softening seen in Search Console clicks over the same window. Read as the same root cause (fewer people arriving from search that week), not a broken form — sample sizes are still single-digit weekly, too small to call a firm trend yet.
@@ -138,8 +141,43 @@ Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): 
 ## Outstanding / deferred work
 
 As of 2026-08-18:
-- `new_client_intake_submit` fires correctly (confirmed in GA4 Realtime, and steadily for 7+ weeks by the Phase 7 audit) but still hasn't been marked a GA4 Key Event — star it under Admin → Data display → Events.
-- Ranking-dilution fix (Phase 7) is on-page only so far. Re-pull Search Console position data for Arlington/Bedford/Burlington/Medford/Watertown in 2–4 weeks to see whether the added internal links moved anything; if not, the next lever is GBP posts/photos/Q&A naming those towns plus directory citations (Yelp, Nextdoor, Bing Places), which needs Manny's GBP login.
+- `new_client_intake_submit` fires correctly (confirmed in GA4 Realtime, and steadily for 7+ weeks by the Phase 8 audit) but still hasn't been marked a GA4 Key Event — star it under Admin → Data display → Events.
+- Ranking-dilution fix (Phase 8) is on-page only so far. Re-pull Search Console position data for Arlington/Bedford/Burlington/Medford/Watertown in 2–4 weeks to see whether the added internal links moved anything; if not, the next lever is GBP posts/photos/Q&A naming those towns plus directory citations (Yelp, Nextdoor, Bing Places), which needs Manny's GBP login.
 - Same-day appointment reminders are **not built**. The Tally intake Sheet has no confirmed-appointment-date column (only a free-text "preferred days/timeframes" field), and actual appointments live in MoeGo, not the Sheet. Needs explicit scoping (e.g. add a staff-filled appointment-date column, or build against the MoeGo API once a key is obtained) before automating.
 - MoeGo API integration is unstarted — would need an API key from MoeGo's Customer Success team first.
 - Re-verify against `git log` / `git status` before assuming this section is still accurate — it will go stale as work continues.
+
+
+## Agentic OS — vault-first session protocol
+
+This repo is part of Manny's Agentic OS. The BRAIN is the manny-ai-os Markdown vault:
+  VAULT = /Users/mannydearaujo/Documents/Codex/2026-07-07/ana/manny-ai-os
+  (canonical value: VAULT_PATH in /Users/mannydearaujo/Agentic OS Build/config/os.config)
+
+Your project record is `VAULT/01-projects/<project>/`, matched by repo name:
+  northatlasstudio → north-atlas-studio      goldenpaws → golden-paws-website
+  golden-paws-dashboard → golden-paws-dashboard   alpha-gutter → alpha-gutter-website
+
+### START — read before touching anything
+1. Read `VAULT/00-brain/SOURCE-OF-TRUTH.md` (ordering + safety rules).
+2. Read this project's `VAULT/01-projects/<project>/`: CURRENT-STATE.md, then TASKS.md,
+   HANDOFF.md, CONTEXT.md. That is the truth for context, decisions, and open work.
+3. Read this repo's local AGENTS.md (Codex) / CLAUDE.md (Claude).
+4. If `graphify-out/graph.json` exists, use `graphify query/path/explain` before broad file reads.
+5. Restate the current state + top open tasks, and confirm the task, before changing code.
+
+### END — after any meaningful work, keep the vault fresh
+1. Append to CURRENT-STATE.md "Recent Work": dated, 1–2 lines on what changed (commits/PRs/URLs).
+2. Update TASKS.md (check off done, add new) and HANDOFF.md (what the next session must know).
+3. Move finished/decided items out of "Open Work"; record any new decisions.
+4. Commit + push BOTH this repo AND the vault. After code changes, run `graphify update .`.
+5. Needs Manny but not a hard gate → file a task:
+   `bash "/Users/mannydearaujo/Agentic OS Build/bin/file-task.sh" "one actionable line"`.
+   Hard sign-off (deploy, send, publish, scope, spend) → write an approval request into
+   `/Users/mannydearaujo/Agentic OS Build/.ops/approvals/pending/`.
+
+### Rules
+- Manny's latest explicit instruction wins, then SOURCE-OF-TRUTH ordering.
+- No external actions (deploy, DNS, send, publish, spend, delete, credentials) without approval.
+- No secrets in any repo. Code repos own code truth; the vault owns context/decisions.
+- If work changed durable state, it belongs in the vault — never leave it only in chat.
