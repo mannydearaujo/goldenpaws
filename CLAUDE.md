@@ -83,6 +83,7 @@ Every page shares: header (logo lockup + hamburger nav), cream footer, favicons 
 ## Reference docs
 
 - `Documentation/Autonomous_SEO_Content_Distribution_Engine_Reviewed.md` — master prompt for the autonomous SEO/content engine. Encodes the doorway-page guardrail, the "never invent local facts" rule, and an E-E-A-T/operator-voice section (avoid AI-tell phrasing). Update this doc if content rules above change.
+- `Documentation/Golden_Paws_Brand_Audit_and_Print_Design_Prompt.md` — brand/logo/typography audit (August 2026) plus the reusable Claude Design prompt pack for print marketing (wall menu, flyers, rack card/tri-fold, business cards). Treat `assets/css/brand.css` as the source of truth for screen and this doc as the source of truth for print. Update it if palette, type, or NAP facts change.
 - `Documentation/GoldenPaws_Website_Build_Reference.docx` — original build reference doc.
 
 ## Project history (chronological, by theme)
@@ -143,9 +144,18 @@ Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): 
 - Measured the real form height directly: **2780px** — meaning more than half the form (everything past 1250px, on this multi-page Tally form, confirmed via its `Tally.FormPageView` postMessage events) was likely unreachable or awkwardly double-scrolled for every visitor, for roughly 7 weeks.
 - Fix: added `<script async src="https://tally.so/widgets/embed.js"></script>` (the vendor-required resize script), raised the static `height` fallback from 1250 to 3000 as a safety net in case the resize script doesn't fire for some user, and removed `loading="lazy"` on the iframe (unnecessary added latency risk on a third-party embed already gated behind a click). Verified via clean cache-busted loads on both desktop and mobile viewports that the resize now correctly shrinks the iframe to the real 2780px content height.
 
+**Phase 10 — brand + print audit and Claude Design prompt pack (August 21, 2026).**
+- Audited the shipped identity across three sources that had drifted apart: `assets/css/brand.css` (screen), `Golden_Paws_Complete_Branding_Logo_Kit/` (vector/print), and the photo of the physical lobby sign. Found the site header lockup, the kit vector files, and the physical sign are three visually different logos.
+- Found three real defects in the kit/`assets/logo` vector family: the primary horizontal logo's right flank rule strikes through the final "G" of "GROOMING"; the kit paw icon is asymmetric (three top toes plus one lower-left toe, no lower-right toe) while both the site header paw and the physical sign are symmetric; and every kit SVG sets the wordmark as live `Georgia`/`Arial` `<text>` rather than outlines, so any printer without those fonts will silently substitute.
+- Documented the two-gold split: kit/print `#D7B24A` (matches the mirrored gold acrylic sign) vs shipped site `#F7C600`. Recommendation recorded as print gold `#D7B24A`, screen gold `#F7C600`.
+- Measured contrast on the palette. Hard rules now written down: gold is never a text color (1.61:1 on white), white on sky blue fails (2.31:1), crimson on sky blue fails (2.84:1). Navy `#152A4D` on gold (8.86:1) and on cream (13.47:1) are the safe pairings.
+- Wrote `Documentation/Golden_Paws_Brand_Audit_and_Print_Design_Prompt.md`: the audit plus a paste-ready Claude Design prompt pack (brand-system block, wall menu board, flyer, rack card, tri-fold, business card, optional extras), the verified NAP/proof-point block, the site's own service copy, print production checklist, and the four inputs Manny still has to supply (prices, wall dimensions, photo picks, QR targets).
+- No site code changed in this session.
+
 ## Outstanding / deferred work
 
-As of 2026-08-18:
+As of 2026-08-21:
+- Print/logo asset debt found in the Phase 10 audit, not yet fixed: rebuild `assets/logo/*.svg` from the shipped site lockup (symmetric paw, no flank rules, outlined wordmark text, one gold), add the website address to the kit business-card starter, and retire `#222222` from the kit tokens in favor of `#152A4D`.
 - Watch `new_client_intake_submit` volume over the next 1–2 weeks post-Phase-9-fix — if completions jump, it confirms the iframe-height bug was the dominant cause of the low completion rate (not just the search-traffic softening from Phase 8).
 - Ranking-dilution fix (Phase 8) is on-page only so far. Re-pull Search Console position data for Arlington/Bedford/Burlington/Medford/Watertown in 2–4 weeks to see whether the added internal links moved anything; if not, the next lever is GBP posts/photos/Q&A naming those towns plus directory citations (Yelp, Nextdoor, Bing Places), which needs Manny's GBP login.
 - Same-day appointment reminders are **not built**. The Tally intake Sheet has no confirmed-appointment-date column (only a free-text "preferred days/timeframes" field), and actual appointments live in MoeGo, not the Sheet. Needs explicit scoping (e.g. add a staff-filled appointment-date column, or build against the MoeGo API once a key is obtained) before automating.
