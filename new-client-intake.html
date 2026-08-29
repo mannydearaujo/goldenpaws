@@ -459,11 +459,27 @@
           thanks.hidden = false;
           thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        // Strip intake=thanks from the URL once the submission has actually been counted.
+        // Without this the event re-fires on every reload, back-navigation, or revisit of
+        // the thank-you URL. The 2026-08-29 audit found that inflated new_client_intake_submit
+        // above Tally's real submission log (6 counted vs 4 actual in one week), which made a
+        // normal week look like a collapse. Only other query params (utm_*, etc) are preserved.
+        // Deliberately NOT cleared when the tracker never loads: in that case nothing was
+        // counted, so leaving the param lets a later reload still capture the submission.
+        function clearIntakeParam() {
+          if (!window.history || !window.history.replaceState) return;
+          try {
+            var url = new URL(window.location.href);
+            url.searchParams.delete('intake');
+            window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+          } catch (e) { /* very old browser: leave the URL as-is rather than break the page */ }
+        }
         (function waitForTracker(attemptsLeft) {
           if (window.gpTrackLead) {
             window.gpTrackLead('new_client_intake_submit', 'Tally intake thank-you redirect', {
               source: 'tally_redirect'
             });
+            clearIntakeParam();
           } else if (attemptsLeft > 0) {
             setTimeout(function() { waitForTracker(attemptsLeft - 1); }, 100);
           }
