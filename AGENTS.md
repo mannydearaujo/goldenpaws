@@ -194,7 +194,7 @@ Site audits clean against the `ai-search-readiness-audit` rubric (Strong band): 
 
 As of 2026-10-14 (updated after the Phase 14 cleanup):
 - **Reviews remain the single highest-return lever and have not moved in six weeks** (4.6★/117, unchanged since August). Needs a named person asking at pickup daily; at ~580 grooms/month a 5% ask-rate is ~29 reviews/month. Nothing on the website competes with this.
-- **Configure the GBP booking action to point at `/book`.** Zero bookings in 5.5 months on a surface with 3,716 views, while calls (331) and website clicks (565) both work. Free, fast, highest-leverage technical fix available.
+- **GBP booking link: done by Manny, verified 2026-10-14** — set to `https://goldenpawspetgrooming.com/book` (the Bookings list truncates it to the bare domain, so check the edit field, not the summary). Two things to watch: the public knowledge panel still shows only Website / Directions / Save / Share / Call, so the booking action had not propagated to customers at time of check; and GBP Bookings had recorded 0 for 5.5 months, so re-read that metric in ~2 weeks to confirm it is now registering.
 - **Complete the Google Business Profile** — Google still flags it incomplete, and completeness feeds local ranking on the surface actually doing the work.
 - **Paid search stays deferred** per the 2026-09-05 business read (fix retention and ticket before buying traffic), and the Phase 13 data supports waiting: the funnel's discovery problem is a reputation problem, not a traffic problem.
 - **Tally Pro for one month as a diagnostic:** intake converts 13.9% (201 visits → 28 submissions, 18s median visit) and the question-level drop-off report that would name the losing field is Pro-gated. Still undiagnosed.
