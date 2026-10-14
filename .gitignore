@@ -5,3 +5,11 @@ Golden_Paws_Complete_Branding_Logo_Kit/
 .claude/
 graphify-out/
 graph.json
+
+# Generated print deliverables and build tooling (Phase 12).
+# GitHub Pages serves this repo's root, so committing these would publish
+# internal print proofs at goldenpawspetgrooming.com/output/... and make them
+# crawlable. Same rule already applied to Analytics/, Documentation/ and the
+# branding kit: local reference material, not deployed site content.
+output/
+tools/

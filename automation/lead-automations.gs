@@ -14,6 +14,12 @@
  * Sent" timestamp, and sends a branded HTML confirmation email from the
  * Golden Paws Gmail account. Marks the row so it never double-sends.
  *
+ * Duplicate submissions (added 2026-10-14): Tally writes one row per
+ * submit, so a client who taps submit twice used to receive two
+ * identical emails (seen 2026-10-12, two rows three minutes apart).
+ * Rows are now also de-duplicated by email address within
+ * DUPLICATE_WINDOW_MS; later rows are stamped but not emailed.
+ *
  * Setup (one-time, already done as of 2026-06-29):
  *   1. Run `createTrigger` once from the Apps Script editor to install
  *      the 10-minute time-based trigger (also clears any duplicate).
@@ -33,6 +39,12 @@ const BUSINESS_PHONE_TEL = '7812749144';
 const BUSINESS_ADDRESS = '395 Lowell St, Lexington, MA';
 const WEBSITE_URL = 'https://goldenpawspetgrooming.com';
 const FROM_NAME = 'Golden Paws Pet Grooming';
+// If the same email submits twice inside this window, only the first row gets a
+// confirmation. Tally records each submission as its own row, so a client who
+// taps submit twice (seen 2026-10-12, two rows three minutes apart) otherwise
+// receives two identical emails. Later rows are still stamped so the scan does
+// not retry them forever.
+const DUPLICATE_WINDOW_MS = 6 * 60 * 60 * 1000; // 6 hours
 
 function getIntakeSheet_() {
   return SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
@@ -98,11 +110,33 @@ function sendNewClientConfirmations() {
   const numRows = lastRow - 1;
   const data = sheet.getRange(2, 1, numRows, CONFIRMATION_COL).getValues();
 
+  // Most recent confirmation already on the sheet per email address, so a repeat
+  // submission from the same person is recognised across runs, not just within one.
+  const lastConfirmed = {};
+  data.forEach(function (row) {
+    const addr = String(row[EMAIL_COL - 1] || '').trim().toLowerCase();
+    const sentAt = row[CONFIRMATION_COL - 1];
+    if (!addr || !(sentAt instanceof Date)) return;
+    if (!lastConfirmed[addr] || sentAt > lastConfirmed[addr]) {
+      lastConfirmed[addr] = sentAt;
+    }
+  });
+
   data.forEach(function (row, i) {
     const rowNum = i + 2;
     const email = row[EMAIL_COL - 1];
     const alreadySent = row[CONFIRMATION_COL - 1];
     if (!email || alreadySent) return;
+
+    const addr = String(email).trim().toLowerCase();
+    const previous = lastConfirmed[addr];
+    if (previous && (Date.now() - previous.getTime()) < DUPLICATE_WINDOW_MS) {
+      // Duplicate submission. Stamp the row so it is not rescanned every 10
+      // minutes, but send nothing: this person already has their confirmation.
+      sheet.getRange(rowNum, CONFIRMATION_COL).setValue(previous);
+      console.log('Skipped duplicate confirmation for ' + addr + ' (row ' + rowNum + ')');
+      return;
+    }
 
     const firstName = row[FIRST_NAME_COL - 1] || 'there';
     const petName = row[PET_NAME_COL - 1] || 'your pup';
@@ -116,7 +150,12 @@ function sendNewClientConfirmations() {
         name: FROM_NAME,
         htmlBody: htmlBody
       });
-      sheet.getRange(rowNum, CONFIRMATION_COL).setValue(new Date());
+      const sentAt = new Date();
+      sheet.getRange(rowNum, CONFIRMATION_COL).setValue(sentAt);
+      // Record it immediately so a duplicate row later in this same scan is
+      // caught too. Both rows of the 2026-10-12 pair arrived unsent together,
+      // so without this the second one still goes out.
+      lastConfirmed[addr] = sentAt;
     } catch (err) {
       console.error('Failed to send confirmation for row ' + rowNum + ': ' + err);
     }
