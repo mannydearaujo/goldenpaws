@@ -15,6 +15,7 @@
     return;
   }
 
+  var AUTO_DELAY = 3000; // ms to let the page settle before the flyer pops up
   var KEY = "gpHoliday2026:" + page;
   var IMG = "/assets/holiday/holiday-schedule-2026";
   var ALT =
@@ -168,5 +169,5 @@
   var openers = document.querySelectorAll("[data-gp-holiday-open]");
   for (var i = 0; i < openers.length; i++) openers[i].addEventListener("click", open);
 
-  if ((page === "home" || page === "book") && !seen()) setTimeout(open, 700);
+  if ((page === "home" || page === "book") && !seen()) setTimeout(open, AUTO_DELAY);
 })();

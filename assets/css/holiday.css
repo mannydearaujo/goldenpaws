@@ -107,14 +107,14 @@
 body.gp-hol-lock { overflow: hidden; }
 .gp-hol-overlay {
   position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
-  padding: 12px; background: rgba(8, 28, 18, .5); animation: gpHolBackdrop .3s ease both;
+  padding: 12px; background: rgba(8, 28, 18, .5); animation: gpHolBackdrop .6s ease both;
 }
 .gp-hol-dialog {
   position: relative; display: flex; flex-direction: column; align-items: center;
   max-width: min(560px, 100%); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px);
   background: #FFF7EF; border-radius: 26px; overflow: hidden;
   box-shadow: 0 34px 80px rgba(0,0,0,.55), 0 10px 24px rgba(0,0,0,.35), 0 0 0 5px var(--gp-gold);
-  animation: gpHolPop .55s cubic-bezier(.2,1.25,.35,1) both; z-index: 2;
+  animation: gpHolPop .7s cubic-bezier(.2,1.1,.35,1) both; z-index: 2;
 }
 .gp-hol-dialog picture { display: block; min-height: 0; }
 .gp-hol-dialog img {
