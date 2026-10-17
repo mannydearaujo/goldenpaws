@@ -1,6 +1,6 @@
 /* Golden Paws holiday 2026 flyer overlay.
-   Shown on the homepage and /book (data-page="home" | "book"), once per page per
-   browser session, closed only with the X (or Esc, for keyboard users).
+   Auto-opens on the homepage and /book (data-page="home" | "book"), once per page per
+   browser session; on every other page (data-page="bar") only the bar button opens it, closed only with the X (or Esc, for keyboard users).
    The festive bar's button reopens it. Self-removes after the end date.
    Remove this file, assets/css/holiday.css and assets/holiday/ in early January 2027. */
 (function () {
@@ -168,5 +168,5 @@
   var openers = document.querySelectorAll("[data-gp-holiday-open]");
   for (var i = 0; i < openers.length; i++) openers[i].addEventListener("click", open);
 
-  if (!seen()) setTimeout(open, 700);
+  if ((page === "home" || page === "book") && !seen()) setTimeout(open, 700);
 })();
