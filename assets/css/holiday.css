@@ -1,0 +1,169 @@
+/* Golden Paws seasonal holiday 2026: festive top bar + flyer overlay.
+   Loaded only on index.html and book.html. Remove with assets/js/holiday.js
+   and assets/holiday/ in early January 2027. */
+:root { --gp-pine: #17432B; --gp-pine-light: #21603D; }
+
+/* ---- Festive top bar: autumn (turkey, maple) blending into Christmas (holly, snow) ---- */
+.gp-holiday-bar {
+  position: relative; z-index: 120; color: #fff; line-height: 1.25; overflow: hidden;
+  background:
+    radial-gradient(circle at 7% 40%, rgba(247,198,0,.28) 0 2px, transparent 3px),
+    radial-gradient(circle at 19% 75%, rgba(255,255,255,.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 30%, rgba(255,255,255,.2) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 70%, rgba(255,255,255,.18) 0 2px, transparent 3px),
+    linear-gradient(90deg, #8E3B10 0%, #B4531A 24%, #6E4A1E 40%, #21603D 62%, #17432B 100%);
+}
+.gp-holiday-bar::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+  background: repeating-linear-gradient(-45deg, #B51F2E 0 10px, #FFF7EF 10px 20px);
+}
+.gp-holiday-bar-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 1180px; margin: 0 auto; padding: 12px 20px 14px; }
+.gp-hb-side { display: flex; align-items: flex-end; gap: 6px; flex: 0 0 auto; }
+.gp-hb-right { align-items: center; }
+.gp-hb-art { display: block; flex: none; }
+.gp-hb-turkey { width: 46px; height: 44px; filter: drop-shadow(0 2px 2px rgba(0,0,0,.3)); }
+.gp-hb-leaf { width: 22px; height: 22px; margin-bottom: 2px; transform: rotate(18deg); }
+.gp-hb-holly { width: 30px; height: 26px; }
+.gp-hb-flake { width: 20px; height: 20px; color: #fff; opacity: .95; }
+.gp-hb-text { flex: 1 1 auto; min-width: 0; text-align: center; font-size: 14px; }
+.gp-hb-text strong { display: block; font-family: var(--gp-display); font-weight: 800; font-size: 19px; letter-spacing: .3px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.35); line-height: 1.1; }
+.gp-hb-sub { display: block; margin-top: 2px; color: #FFF1D6; min-height: 1.3em; transition: opacity .25s ease, transform .25s ease; }
+.gp-hb-sub.is-out { opacity: 0; transform: translateY(-5px); }
+.gp-hb-sub-short { display: none; }
+.gp-hb-cta {
+  font: inherit; font-weight: 800; font-size: 13px; cursor: pointer; border: 0; white-space: nowrap; flex: 0 0 auto;
+  background: var(--gp-gold); color: #152A4D; padding: 8px 16px; border-radius: 999px;
+  box-shadow: 0 0 0 2px #fff inset, 0 3px 8px rgba(0,0,0,.3);
+}
+.gp-hb-cta:hover { filter: brightness(1.06); }
+.gp-hb-cta:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.gp-hb-short { display: none; }
+
+/* ---- Bar motion (all transform/opacity only; fully disabled for reduced-motion) ---- */
+.gp-holiday-bar::before { content: ""; position: absolute; left: 0; right: 0; top: 4px; height: 1px; background: rgba(0,0,0,.38); z-index: 1; }
+.gp-hb-lights { position: absolute; left: 0; right: 0; top: 0; height: 10px; pointer-events: none; z-index: 1; }
+.gp-hb-lights.a {
+  background:
+    radial-gradient(circle at 8px 5px, #FF5A5A 0 2.6px, transparent 3.5px) 0 0 / 56px 10px,
+    radial-gradient(circle at 36px 5px, #4ADE80 0 2.6px, transparent 3.5px) 0 0 / 56px 10px;
+  filter: drop-shadow(0 0 3px rgba(255,140,140,.95)); animation: gpHbTwinkleA 1.3s ease-in-out infinite alternate;
+}
+.gp-hb-lights.b {
+  background:
+    radial-gradient(circle at 22px 5px, #FFD23F 0 2.6px, transparent 3.5px) 0 0 / 56px 10px,
+    radial-gradient(circle at 50px 5px, #5AC8FA 0 2.6px, transparent 3.5px) 0 0 / 56px 10px;
+  filter: drop-shadow(0 0 3px rgba(255,230,140,.95)); animation: gpHbTwinkleB 1.3s ease-in-out infinite alternate;
+}
+@keyframes gpHbTwinkleA { from { opacity: 1; } to { opacity: .3; } }
+@keyframes gpHbTwinkleB { from { opacity: .3; } to { opacity: 1; } }
+
+.gp-hb-fall { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.gp-hb-fall > span { position: absolute; top: 0; display: block; opacity: 0; animation: gpHbFall linear infinite; will-change: transform; }
+.gp-hb-fall svg { display: block; width: 100%; height: 100%; }
+@keyframes gpHbFall {
+  0%   { transform: translate3d(0, -16px, 0) rotate(0); opacity: 0; }
+  12%  { opacity: .95; }
+  88%  { opacity: .95; }
+  100% { transform: translate3d(var(--drift, 20px), 84px, 0) rotate(var(--rot, 200deg)); opacity: 0; }
+}
+
+.gp-hb-turkey { transform-origin: 50% 96%; animation: gpHbWaddle 1.7s ease-in-out infinite; }
+@keyframes gpHbWaddle {
+  0%, 100% { transform: rotate(-6deg) translateY(0); }
+  25%      { transform: rotate(0) translateY(-3px); }
+  50%      { transform: rotate(6deg) translateY(0); }
+  75%      { transform: rotate(0) translateY(-3px); }
+}
+.gp-hb-tail { transform-origin: 24px 29px; animation: gpHbRuffle 1s ease-in-out infinite alternate; }
+@keyframes gpHbRuffle { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+.gp-hb-pom { transform-box: fill-box; transform-origin: center; animation: gpHbPom .55s ease-in-out infinite alternate; }
+@keyframes gpHbPom { from { transform: translateY(0); } to { transform: translateY(-1.8px); } }
+.gp-hb-leaf { animation: gpHbSway 2.6s ease-in-out infinite alternate; }
+@keyframes gpHbSway { from { transform: rotate(4deg); } to { transform: rotate(34deg); } }
+.gp-hb-holly { transform-origin: 50% 90%; animation: gpHbHolly 2.2s ease-in-out infinite alternate; }
+@keyframes gpHbHolly { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+.gp-hb-flake { animation: gpHbSpin 9s linear infinite; }
+@keyframes gpHbSpin { to { transform: rotate(360deg); } }
+
+.gp-hb-cta { position: relative; overflow: hidden; animation: gpHbPulse 2.8s ease-out infinite; }
+.gp-hb-cta::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -70%; width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.85), transparent);
+  transform: skewX(-20deg); animation: gpHbShine 3.4s ease-in-out infinite; pointer-events: none;
+}
+@keyframes gpHbShine { 0%, 55% { left: -70%; } 100% { left: 135%; } }
+@keyframes gpHbPulse {
+  0%   { box-shadow: 0 0 0 2px #fff inset, 0 3px 8px rgba(0,0,0,.3), 0 0 0 0 rgba(247,198,0,.7); }
+  70%, 100% { box-shadow: 0 0 0 2px #fff inset, 0 3px 8px rgba(0,0,0,.3), 0 0 0 11px rgba(247,198,0,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gp-holiday-bar *, .gp-holiday-bar *::before { animation: none !important; transition: none !important; }
+  .gp-hb-fall { display: none; }
+  .gp-hb-lights.a, .gp-hb-lights.b { opacity: 1; }
+}
+
+
+/* ---- Flyer overlay ---- */
+body.gp-hol-lock { overflow: hidden; }
+.gp-hol-overlay {
+  position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
+  padding: 12px; background: rgba(8, 28, 18, .5); animation: gpHolBackdrop .3s ease both;
+}
+.gp-hol-dialog {
+  position: relative; display: flex; flex-direction: column; align-items: center;
+  max-width: min(560px, 100%); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px);
+  background: #FFF7EF; border-radius: 26px; overflow: hidden;
+  box-shadow: 0 34px 80px rgba(0,0,0,.55), 0 10px 24px rgba(0,0,0,.35), 0 0 0 5px var(--gp-gold);
+  animation: gpHolPop .55s cubic-bezier(.2,1.25,.35,1) both; z-index: 2;
+}
+.gp-hol-dialog picture { display: block; min-height: 0; }
+.gp-hol-dialog img {
+  display: block; width: auto; height: auto; max-width: 100%;
+  max-height: calc(100vh - 24px - 74px); max-height: calc(100dvh - 24px - 74px);
+}
+.gp-hol-actions { display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px; width: 100%; padding: 12px 14px; background: #FFF7EF; border-top: 1px solid rgba(21,42,77,.1); }
+.gp-hol-actions .gp-btn { padding: 11px 20px; font-size: 14px; }
+.gp-hol-close {
+  position: absolute; top: 10px; right: 10px; z-index: 3; width: 46px; height: 46px; border-radius: 50%;
+  background: var(--gp-crimson); color: #fff; border: 3px solid #fff; cursor: pointer;
+  font: 700 28px/1 var(--gp-sans); display: flex; align-items: center; justify-content: center; padding: 0 0 3px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.35);
+}
+.gp-hol-close:hover { filter: brightness(1.1); }
+.gp-hol-close:focus-visible { outline: 3px solid var(--gp-gold); outline-offset: 2px; }
+
+/* Falling snow behind the dialog */
+.gp-hol-flake { position: absolute; top: -24px; color: #fff; opacity: .85; pointer-events: none; z-index: 1; animation: gpHolSnow linear infinite; }
+@keyframes gpHolSnow { to { transform: translate3d(var(--drift, 30px), calc(100vh + 40px), 0) rotate(240deg); } }
+/* Only the dim backdrop fades; the flyer itself is fully opaque from the first frame and springs forward. */
+@keyframes gpHolBackdrop { from { background-color: rgba(8, 28, 18, 0); } to { background-color: rgba(8, 28, 18, .5); } }
+@keyframes gpHolPop { from { transform: translateY(60px) scale(.6) rotate(-2deg); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .gp-hol-flake { display: none; }
+  .gp-hol-overlay, .gp-hol-dialog { animation: none; }
+}
+
+@media (max-width: 720px) {
+  .gp-hb-leaf { display: none; }
+}
+@media (max-width: 600px) {
+  .gp-hb-long { display: none !important; }
+  .gp-hb-short { display: inline; }
+  .gp-hb-right { display: none; }
+  .gp-holiday-bar-inner { gap: 8px; padding: 10px 12px 12px; }
+  .gp-hb-sub-long { display: none; }
+  .gp-hb-sub-short { display: block; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .gp-hb-text strong { line-height: 1.05; }
+  .gp-hb-turkey { width: 38px; height: 36px; }
+  .gp-hb-text { text-align: left; }
+  .gp-hb-text strong { font-size: 15px; }
+  .gp-hb-cta { padding: 7px 14px; }
+  .gp-hol-actions { gap: 8px; padding: 12px 12px; }
+  .gp-hol-actions .gp-btn { flex: 1 1 0; min-width: 0; white-space: nowrap; text-align: center; padding: 11px 8px; font-size: 13px; }
+}
+@media (max-width: 350px) {
+  .gp-hb-sub { display: none; }
+  .gp-hb-turkey { width: 32px; height: 30px; }
+  .gp-hb-text strong { font-size: 13px; }
+  .gp-hb-cta { padding: 6px 11px; font-size: 12px; }
+}

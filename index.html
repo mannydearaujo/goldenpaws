@@ -156,6 +156,7 @@
 
   <!-- BRAND STYLESHEET -->
   <link rel="stylesheet" href="assets/css/brand.css?v=10" />
+  <link rel="stylesheet" href="assets/css/holiday.css?v=5" />
 
   <!-- GOOGLE ANALYTICS 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-29DBKD0B56"></script>
@@ -166,6 +167,7 @@
     gtag('config', 'G-29DBKD0B56');
   </script>
   <script defer src="/lead-tracking.js"></script>
+  <script defer src="/assets/js/holiday.js?v=2" data-page="home"></script>
 </head>
 
 <body>
@@ -173,6 +175,37 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK5D6W8R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+
+  <!-- ============ HOLIDAY BAR (seasonal, remove Jan 2027) ============ -->
+  <div class="gp-holiday-bar" id="gp-holiday-bar" role="region" aria-label="Holiday grooming schedule">
+    <span class="gp-hb-lights a" aria-hidden="true"></span><span class="gp-hb-lights b" aria-hidden="true"></span>
+    <span class="gp-hb-fall" aria-hidden="true"></span>
+    <div class="gp-holiday-bar-inner">
+      <span class="gp-hb-side gp-hb-left"><svg class="gp-hb-art gp-hb-turkey" viewBox="0 0 48 46" aria-hidden="true">
+        <g class="gp-hb-tail"><g transform="translate(24 29)">
+          <ellipse cx="0" cy="-15" rx="4.6" ry="12" transform="rotate(-64)" fill="#B51F2E"/>
+          <ellipse cx="0" cy="-15" rx="4.6" ry="12" transform="rotate(-32)" fill="#E8751A"/>
+          <ellipse cx="0" cy="-15" rx="4.6" ry="12" fill="#F7C600"/>
+          <ellipse cx="0" cy="-15" rx="4.6" ry="12" transform="rotate(32)" fill="#E8751A"/>
+          <ellipse cx="0" cy="-15" rx="4.6" ry="12" transform="rotate(64)" fill="#B51F2E"/>
+        </g></g>
+        <circle cx="24" cy="31" r="10.5" fill="#6B3E1F"/>
+        <ellipse cx="24" cy="33" rx="6" ry="6.5" fill="#8A5A2B"/>
+        <circle cx="24" cy="21.5" r="6.2" fill="#8A5A2B"/>
+        <ellipse cx="24" cy="18" rx="8" ry="2.4" fill="#fff"/>
+        <path d="M17.5 17.6 Q18.5 6 29.6 5.4 Q27 11 30.4 17.6 Z" fill="#B51F2E"/>
+        <circle class="gp-hb-pom" cx="29.8" cy="5.4" r="2.5" fill="#fff"/>
+        <circle cx="21.6" cy="21.6" r="1.7" fill="#fff"/><circle cx="26.4" cy="21.6" r="1.7" fill="#fff"/>
+        <circle cx="21.8" cy="21.8" r=".8" fill="#152A4D"/><circle cx="26.2" cy="21.8" r=".8" fill="#152A4D"/>
+        <path d="M22.4 24 L25.6 24 L24 27.2 Z" fill="#F7C600"/>
+        <ellipse cx="24.6" cy="28" rx="1.2" ry="2" fill="#B51F2E"/>
+        <path d="M19 41 l-2 3 M23 41.5 l-1 3.5 M25 41.5 l1 3.5 M29 41 l2 3" stroke="#F7C600" stroke-width="1.6" stroke-linecap="round"/>
+      </svg><svg class="gp-hb-art gp-hb-leaf" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.1 4.3 3.2-1.4-.9 4.6 4.3.9-3.2 3.1 1.9 3.1-4.5-.7L12 22.5l-.6-5.1-4.5.7 1.9-3.1L5.600 11 9.900 10.100 9 5.500l3.200 1.400z" fill="#E8751A"/><path d="M12 22.5V12" stroke="#8E3B10" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+      <span class="gp-hb-text"><strong>Holiday Grooming Schedule</strong><span class="gp-hb-sub"><span class="gp-hb-sub-long">Thanksgiving, Christmas and New Year's. Plan ahead and book early!</span><span class="gp-hb-sub-short">Book early for holiday spots</span></span></span>
+      <button type="button" class="gp-hb-cta" data-gp-holiday-open><span class="gp-hb-long">View schedule</span><span class="gp-hb-short">View</span></button>
+      <span class="gp-hb-side gp-hb-right"><svg class="gp-hb-art gp-hb-holly" viewBox="0 0 28 24" aria-hidden="true"><path d="M14 13 C8 13 3 10 2 5 C8 4 13 7 14 13Z" fill="#2E9B5F"/><path d="M14 13 C20 13 25 10 26 5 C20 4 15 7 14 13Z" fill="#1F7A47"/><circle cx="11.500" cy="15" r="3" fill="#B51F2E"/><circle cx="16.500" cy="15" r="3" fill="#B51F2E"/><circle cx="14" cy="18.500" r="3" fill="#B51F2E"/><circle cx="10.700" cy="14.100" r=".8" fill="#fff" opacity=".7"/><circle cx="15.700" cy="14.100" r=".8" fill="#fff" opacity=".7"/></svg><svg class="gp-hb-art gp-hb-flake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17M9 4l3 2 3-2M9 20l3-2 3 2"/></svg></span>
+    </div>
+  </div>
 
   <!-- ============ HEADER ============ -->
   <header class="gp-header">
