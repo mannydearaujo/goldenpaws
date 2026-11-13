@@ -234,7 +234,7 @@ Rules:
 ## Agentic OS — vault-first session protocol
 
 This repo is part of Manny's Agentic OS. The BRAIN is the manny-ai-os Markdown vault:
-  VAULT = /Users/mannydearaujo/Documents/Codex/2026-07-07/ana/manny-ai-os
+  VAULT = /Users/mannydearaujo/manny-ai-os
   (canonical value: VAULT_PATH in /Users/mannydearaujo/Agentic OS Build/config/os.config)
 
 Your project record is `VAULT/01-projects/<project>/`, matched by repo name:
