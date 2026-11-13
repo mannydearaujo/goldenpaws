@@ -169,5 +169,8 @@
   var openers = document.querySelectorAll("[data-gp-holiday-open]");
   for (var i = 0; i < openers.length; i++) openers[i].addEventListener("click", open);
 
-  if ((page === "home" || page === "book") && !seen()) setTimeout(open, AUTO_DELAY);
+  // Phones: never auto-open. A full-screen popup on a small screen blocks the Book button and
+  // risks Google's intrusive-interstitial demotion for search visitors. The bar button still opens it.
+  var SMALL = window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  if ((page === "home" || page === "book") && !SMALL && !seen()) setTimeout(open, AUTO_DELAY);
 })();
