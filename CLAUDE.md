@@ -19,6 +19,7 @@ Static HTML marketing site for Golden Paws Pet Grooming (Lexington, MA), deploye
 - Served by **GitHub Pages from `main`**, custom domain **goldenpawspetgrooming.com** (`CNAME` file at root).
 - **There is no staging branch.** Pushing to `main` deploys live immediately. Established workflow is direct commits to `main` — confirm with the user before pushing anything that isn't ready to go live.
 - Extensionless URLs work in production (e.g. `/book` → `book.html`) but **404 on local preview** (`python -m http.server`) — don't treat that as a bug.
+- **Stub policy (2026-11-12):** the 11 "coverage moved" town stubs are `noindex, follow` with **no** canonical tag (a `noindex` page should not also point its canonical at a different URL). They carry GA4 and `lead-tracking.js` so calls and bookings from them are counted, and they stay out of the sitemap. `404.html` is the branded not-found page GitHub Pages serves.
 - Canonical domain `https://goldenpawspetgrooming.com/` is used for all asset/OG/canonical URLs — never relative-link to GitHub raw or Pages subdomain.
 
 ## Stack
@@ -218,7 +219,7 @@ As of 2026-10-14 (updated after the Phase 14 cleanup):
 ## Agentic OS — vault-first session protocol
 
 This repo is part of Manny's Agentic OS. The BRAIN is the manny-ai-os Markdown vault:
-  VAULT = /Users/mannydearaujo/Documents/Codex/2026-07-07/ana/manny-ai-os
+  VAULT = /Users/mannydearaujo/manny-ai-os
   (canonical value: VAULT_PATH in /Users/mannydearaujo/Agentic OS Build/config/os.config)
 
 Your project record is `VAULT/01-projects/<project>/`, matched by repo name:
