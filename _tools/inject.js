@@ -3,8 +3,13 @@
 // GOLDEN PAWS — SUBPAGE TRANSFORMER
 // inject.js
 //
-// USAGE (run from repo root after cloning):
-//   node inject.js
+// USAGE (run from the repo root):
+//   node _tools/inject.js
+//
+// Lives in _tools/ because GitHub Pages (Jekyll) does not publish folders that start with
+// an underscore, so this build script is no longer served on the live site.
+// NOTE: this was a one-time transformer (May 2026). Re-running it on the current pages
+// would inject the header, footer and GA4 a second time. Do not re-run without review.
 //
 // What it does:
 //   1. Reads every .html file in the repo (except index.html,

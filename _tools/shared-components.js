@@ -1,6 +1,6 @@
 // ============================================================
 // GOLDEN PAWS — SHARED HEADER / FOOTER / GA4 COMPONENTS
-// Used by inject.js to transform all subpages
+// Used by _tools/inject.js to transform all subpages
 // ============================================================
 
 const GA4_SNIPPET = `
