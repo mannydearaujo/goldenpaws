@@ -1,0 +1,19 @@
+# GitHub Pages (Jekyll) build settings.
+# This repo's root is the live site, so anything tracked here is published unless excluded.
+# Keep internal docs, automation source, and agent tooling off goldenpawspetgrooming.com.
+exclude:
+  - CLAUDE.md
+  - AGENTS.md
+  - README.md
+  - automation/
+  - _tools/
+  - .codex/
+  - .claude/
+  - .claudeignore
+  - Analytics/
+  - Documentation/
+  - Golden_Paws_Complete_Branding_Logo_Kit/
+  - output/
+  - tools/
+  - tmp/
+  - graphify-out/
